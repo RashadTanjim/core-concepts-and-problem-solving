@@ -1,4 +1,4 @@
-//public class CodeTemplates {
+//public class CodeTemplates { // Templates from Leetcode
 //
 //    // 1.Two pointers: one input, opposite ends
 //
