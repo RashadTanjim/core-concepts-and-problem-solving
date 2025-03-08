@@ -830,8 +830,6 @@ final class Bike extends Vehicle {} // Allowed
 
 ---
 
-## **Advanced Java Concepts**
-
 ### 🔸 **What is a memory leak in Java, and how can you prevent it?**
 Memory leaks occur when **objects are no longer needed but remain referenced**.
 
@@ -885,8 +883,6 @@ Comparator<Student> byAge = (s1, s2) -> Integer.compare(s1.age, s2.age);
 ```
 
 ---
-
-## **Concurrency & Multithreading**
 
 ### 🔸 **What is the difference between `synchronized` and `Lock`?**
 | Feature        | `synchronized` | `Lock` (ReentrantLock) |
@@ -1466,4 +1462,3 @@ counter++; // Not thread-safe 🚨
 ```
 **Fix:** Use **`AtomicInteger`** or **synchronized block**.
 
----
