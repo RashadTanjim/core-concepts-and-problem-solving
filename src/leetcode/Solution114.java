@@ -28,7 +28,7 @@ public class Solution114 {
 
     public static void printList(TreeNode root) {
         while (root != null) {
-            System.out.print(root.value + " -> ");
+            System.out.print(root.val + " -> ");
             root = root.right;
         }
         System.out.println("NULL");

@@ -11,7 +11,7 @@ class Solution112 {
         if (root == null) return false;
 
         Stack<Pair<TreeNode, Integer>> stack = new Stack<>();
-        stack.push(new Pair<>(root, targetSum - root.value));
+        stack.push(new Pair<>(root, targetSum - root.val));
 
         while (!stack.isEmpty()) {
             Pair<TreeNode, Integer> pair = stack.pop();
@@ -23,10 +23,10 @@ class Solution112 {
             }
 
             if (node.right != null) {
-                stack.push(new Pair<>(node.right, remainingSum - node.right.value));
+                stack.push(new Pair<>(node.right, remainingSum - node.right.val));
             }
             if (node.left != null) {
-                stack.push(new Pair<>(node.left, remainingSum - node.left.value));
+                stack.push(new Pair<>(node.left, remainingSum - node.left.val));
             }
         }
         return false;

@@ -20,7 +20,7 @@ public class Solution101 {
 
             if (t1 == null && t2 == null) continue;
             if (t1 == null || t2 == null) return false;
-            if (t1.value != t2.value) return false;
+            if (t1.val != t2.val) return false;
 
             queue.offer(t1.left);
             queue.offer(t2.right);

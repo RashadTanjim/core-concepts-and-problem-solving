@@ -9,7 +9,7 @@ public class Solution230 {
     public static int kthSmallest(TreeNode root, int k) {
         int leftSize = countNodes(root.left);
 
-        if (k == leftSize + 1) return root.value;
+        if (k == leftSize + 1) return root.val;
         else if (k <= leftSize) return kthSmallest(root.left, k);
         else return kthSmallest(root.right, k - leftSize - 1);
     }
@@ -22,7 +22,7 @@ public class Solution230 {
     // Helper function to insert a node into the BST
     public static TreeNode insert(TreeNode root, int val) {
         if (root == null) return new TreeNode(val);
-        if (val < root.value) root.left = insert(root.left, val);
+        if (val < root.val) root.left = insert(root.left, val);
         else root.right = insert(root.right, val);
         return root;
     }

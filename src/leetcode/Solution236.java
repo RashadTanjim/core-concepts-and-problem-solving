@@ -49,6 +49,6 @@ public class Solution236 {
         TreeNode lca = lowestCommonAncestor(root, node5, node1);
 
         // Output the result
-        System.out.println("Lowest Common Ancestor: " + (lca != null ? lca.value : "null"));
+        System.out.println("Lowest Common Ancestor: " + (lca != null ? lca.val : "null"));
     }
 }
