@@ -21,7 +21,7 @@ public class Solution226 {
         return root;
     }
 
-    public static void printTree(TreeNode root) {
+    private static void printTree(TreeNode root) {
         if (root == null) return;
 
         Queue<TreeNode> queue = new LinkedList<>();
@@ -29,7 +29,7 @@ public class Solution226 {
 
         while (!queue.isEmpty()) {
             TreeNode node = queue.poll();
-            System.out.print(node.value + " ");
+            System.out.print(node.val + " ");
             if (node.left != null) queue.offer(node.left);
             if (node.right != null) queue.offer(node.right);
         }

@@ -58,7 +58,7 @@ public class Solution114 {
         while (!queue.isEmpty()) {
             TreeNode node = queue.poll();
             if (node != null) {
-                System.out.print(node.value + " ");
+                System.out.print(node.val + " ");
                 queue.add(node.left);
                 queue.add(node.right);
             } else {

@@ -18,7 +18,7 @@ public class Solution173 {
         public int next() {
             TreeNode node = stack.pop();
             pushLeftNodes(node.right);
-            return node.value;
+            return node.val;
         }
 
         // Returns whether we have a next smallest number

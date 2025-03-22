@@ -24,7 +24,7 @@ public class Solution637 {
             for (int i = 0; i < levelSize; i++) {
 
                 TreeNode node = queue.poll();
-                sum += node.value;
+                sum += node.val;
 
                 if (node.left != null) queue.offer(node.left);
                 if (node.right != null) queue.offer(node.right);

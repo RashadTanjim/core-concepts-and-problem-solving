@@ -14,17 +14,17 @@ public class Solution98 {
         }
 
         // If the node violates the min/max range, return false
-        if ((min != null && node.value <= min) || (max != null && node.value >= max)) {
+        if ((min != null && node.val <= min) || (max != null && node.val >= max)) {
             return false;
         }
 
         // Check left subtree (max is updated)
-        if (!validate(node.left, min, node.value)){
+        if (!validate(node.left, min, node.val)){
             return false;
         }
 
         // Check right subtree (min is updated)
-        if (!validate(node.right, node.value, max)) {
+        if (!validate(node.right, node.val, max)) {
             return false;
         }
 

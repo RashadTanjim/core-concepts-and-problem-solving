@@ -19,7 +19,7 @@ public class Solution129 {
 
             Map.Entry<TreeNode, Integer> entry = stack.pop();
             TreeNode node = entry.getKey();
-            int val = entry.getValue() * 10 + node.value;
+            int val = entry.getValue() * 10 + node.val;
 
             if (node.left == null && node.right == null) {
                 totalSum += val;

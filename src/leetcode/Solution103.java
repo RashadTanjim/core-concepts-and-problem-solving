@@ -24,9 +24,9 @@ public class Solution103 {
                 TreeNode node = queue.poll();
 
                 if (leftToRight) {
-                    levelNodes.addLast(node.value);
+                    levelNodes.addLast(node.val);
                 } else {
-                    levelNodes.addFirst(node.value);
+                    levelNodes.addFirst(node.val);
                 }
 
                 if (node.left != null)

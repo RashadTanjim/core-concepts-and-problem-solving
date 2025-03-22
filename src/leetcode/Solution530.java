@@ -17,9 +17,9 @@ public class Solution530 {
         inorder(node.left);
 
         if (prev != null) {
-            minDiff = Math.min(minDiff, node.value - prev);
+            minDiff = Math.min(minDiff, node.val - prev);
         }
-        prev = node.value;
+        prev = node.val;
 
         inorder(node.right);
     }

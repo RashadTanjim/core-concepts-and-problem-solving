@@ -18,7 +18,7 @@ public class Solution199 {
         if (node == null) return;
 
         if (depth == result.size()) {
-            result.add(node.value);
+            result.add(node.v);
         }
 
         dfs(node.right, depth + 1, result);

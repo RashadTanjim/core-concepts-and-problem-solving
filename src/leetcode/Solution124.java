@@ -28,11 +28,11 @@ public class Solution124 {
                 int rightGain = Math.max(0, maxGain.getOrDefault(node.right, 0));
 
                 // Compute max path sum at this node
-                int currentPathSum = leftGain + rightGain + node.value;
+                int currentPathSum = leftGain + rightGain + node.val;
                 maxSum = Math.max(maxSum, currentPathSum);
 
                 // Store the max gain from this node
-                maxGain.put(node, Math.max(leftGain, rightGain) + node.value);
+                maxGain.put(node, Math.max(leftGain, rightGain) + node.val);
                 visited.add(node);
             } else {
                 // Push children onto stack if they are not visited
