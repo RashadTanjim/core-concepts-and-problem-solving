@@ -1,4 +1,4 @@
-package leetcode;
+package others;
 
 import java.util.*;
 import leetcode.helper.*;
