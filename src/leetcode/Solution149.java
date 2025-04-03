@@ -50,7 +50,10 @@ public class Solution149 {
     // Main function for testing
     public static void main(String[] args) {
         Solution149 sol = new Solution149();
-        int[][] points = {{1, 1}, {2, 2}, {3, 3}};
-        System.out.println(sol.maxPoints(points)); // Output: 3
+        int[][] points1 = {{1, 1}, {2, 2}, {3, 3}};
+        System.out.println(sol.maxPoints(points1)); // Output: 3
+
+        int[][] points2 = {{1, 1}, {3, 2}, {5, 3}, {4, 1}, {2, 3}, {1, 4}};
+        System.out.println(sol.maxPoints(points2)); // Output: 3
     }
 }
