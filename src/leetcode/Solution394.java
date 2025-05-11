@@ -24,9 +24,7 @@ public class Solution394 {
                 StringBuilder decoded = stringStack.pop();
                 int repeat = countStack.pop();
 
-                for (int i = 0; i < repeat; i++) {
-                    decoded.append(current);
-                }
+                decoded.append(String.valueOf(current).repeat(repeat));
                 current = decoded;
             } else {
                 current.append(ch);
