@@ -524,7 +524,16 @@ if (lock1.tryLock()) {
 ```
 
 ---
-I have covered all the questions from your list. However, let me do a final cross-check to ensure nothing is missed.
+
+
+### 🔸 **What is the `volatile` keyword?**
+The `volatile` keyword is used to indicate that a variable's value may be changed by different threads. It ensures visibility of changes to variables across threads.
+
+```java
+class Shared {
+    volatile int count = 0; // Ensures visibility
+}
+```
 
 ---
 
@@ -1216,8 +1225,6 @@ public interface OrderClient {
 }
 ```
 
----
-
 - **Blue-Green Deployments**
 - **Canary Releases**
 - **Rolling Updates**
@@ -1289,7 +1296,9 @@ java -XX:+UseG1GC -Xms2g -Xmx4g -XX:MaxGCPauseMillis=200
 ```sh
 java -Xlog:gc
 ```
+
 ---
+
 
 ### 🔸 **JVM Components**
 1. **ClassLoader**: Loads `.class` files.
@@ -1300,6 +1309,9 @@ java -Xlog:gc
 3. **Execution Engine**:
   - **Interpreter** (executes bytecode line-by-line)
   - **JIT Compiler** (converts bytecode to native code for performance)
+
+---
+
 
 ### 🔸 **Class Loading in JVM**
 - **Bootstrap ClassLoader** → Loads `java.lang.*`
@@ -1333,6 +1345,8 @@ Box<Integer> intBox = new Box<>();
 intBox.set(10);
 System.out.println(intBox.get()); // 10
 ```
+
+---
 
 ### 🔸 **Generics Wildcards (`? extends`, `? super`)**
 | Wildcard | Use Case |
@@ -1454,6 +1468,8 @@ synchronized (lock1) {
 }
 ```
 **Fix:** **Always acquire locks in the same order**.
+
+---
 
 ### 🔸 **Race Condition**
 Happens when multiple threads access shared data **without synchronization**.
@@ -1659,6 +1675,99 @@ Why not just use plain threads?
 > Threads are heavyweight and low-level. `CompletableFuture` or `ExecutorService` are preferable for better scalability, error handling, and clean API chaining.
 
 ---
+
+---
+
+
+### 🔸 **Sync vs Async**
+| Feature         | Synchronous (Sync)       | Asynchronous (Async)      |  
+|------------------|--------------------------|---------------------------|
+| Blocking         | Yes                      | No                        |
+| Execution        | Sequential               | Concurrent                |
+| Callbacks        | No                       | Yes                       |
+| Error Handling   | Try-catch                | Callbacks or Futures      |
+| Performance      | Slower for I/O-bound tasks | Faster for I/O-bound tasks |
+| Complexity       | Simpler                  | More complex              |
+| Use Cases        | Simple tasks, CPU-bound  | I/O-bound tasks, parallel processing |
+| Libraries        | Java standard libraries   | CompletableFuture, RxJava, Project Reactor |
+| Examples         | File I/O, DB calls       | Web scraping, API calls   |
+| Threading        | Single-threaded          | Multi-threaded            |
+| Scalability      | Limited                  | High                      |
+| Resource Usage   | Higher                   | Lower                     |
+| Debugging        | Easier                   | More complex              |
+| Testing          | Easier                   | More complex              |
+| Error Propagation | Simple                  | Complex                   |
+| Performance      | Slower                   | Faster                    |
+
+
+---
+
+### 🔸 **What is a Virtual Thread?**
+- **Virtual threads** are lightweight threads managed by the JVM.
+- **Project Loom** introduces **virtual threads** for lightweight concurrency.
+- **Benefits**:
+  - **Scalability**: Handle thousands of concurrent tasks.
+  - **Simplicity**: Easier to write and maintain async code.
+  - **Performance**: Reduced overhead compared to traditional threads.
+
+---
+
+### 🔸 **What is a Thread Pool?**
+- A **thread pool** is a collection of pre-initialized threads that can be reused for executing tasks.
+- It helps manage resources efficiently and reduces the overhead of creating new threads.
+- **Benefits**:
+  - **Improved performance**: Reuses threads instead of creating new ones.
+  - **Resource management**: Limits the number of concurrent threads.
+  - **Task scheduling**: Can schedule tasks for future execution.
+- **Types**:
+  - **Fixed Thread Pool**: A fixed number of threads.
+  - **Cached Thread Pool**: Creates new threads as needed, but will reuse previously constructed threads when they are available.
+  - **Single Thread Executor**: A single thread to execute tasks sequentially.
+  - **Scheduled Thread Pool**: Can schedule tasks to run after a delay or periodically.
+- **Example**:
+    ```java
+    ExecutorService executor = Executors.newFixedThreadPool(5);
+    executor.submit(() -> {
+        // Task code here
+    });
+    executor.shutdown();
+    ```
+- **Best Practices**:
+  - Use appropriate thread pool size based on the workload.
+  - Avoid using too many threads to prevent context switching overhead.
+  - Use `try-with-resources` to ensure proper shutdown of the executor.
+  - Monitor thread pool metrics to adjust the size dynamically.
+  - Use `ScheduledExecutorService` for periodic tasks.
+  - Use `ThreadPoolExecutor` for more control over thread pool behavior.
+  - Use `ForkJoinPool` for parallel processing of tasks.
+  - Use `CompletableFuture` for async tasks with thread pools.
+  - Use `Executors.newWorkStealingPool()` for parallel processing of tasks.
+  - Use `Executors.newSingleThreadExecutor()` for sequential task execution.
+
+
+---
+
+### 🔸 **What is a ForkJoinPool?**
+- A specialized thread pool for parallel processing in Java.
+- Part of the **Fork/Join Framework** introduced in Java 7.
+- Designed for **divide-and-conquer** algorithms.
+- Uses a work-stealing algorithm to balance the load among threads.
+- Threads can "steal" tasks from other threads to keep busy.
+- Ideal for CPU-bound tasks that can be broken into smaller subtasks.
+- Example:
+  ```java
+    ForkJoinPool pool = new ForkJoinPool(); 
+    int result = pool.invoke(new RecursiveTask<Integer>() {
+        @Override
+        protected Integer compute() {
+            // Divide task and invoke subtasks
+            return 0; // Combine results
+        }
+    });
+    ```
+
+---
+
 
 ### 🔸 **What is JNI (Java Native Interface)?**
 - **JNI** allows Java code to interact with native applications and libraries written in C, C++, or other languages.
@@ -1888,7 +1997,7 @@ java -XX:+TieredCompilation -Xms512m -Xmx4g MyApp
 ---
 
 
-### 🔸 **Java vs Kotlin vs Groovy**
+### 🔸 **JVM Languages: Java vs Kotlin vs Groovy**
 | Feature         | Java                      | Kotlin                    | Groovy                     |
 |------------------|--------------------------|---------------------------|----------------------------|
 | Syntax           | Verbose                  | Concise                   | Dynamic                    |
@@ -1912,5 +2021,25 @@ java -XX:+TieredCompilation -Xms512m -Xmx4g MyApp
 | Community Support | Large                  | Growing                   | Large                      |
 | Adoption         | High                    | Growing                   | Moderate                   |
 | Popularity       | High                    | Growing                   | Moderate                   |
+
+
+---
+
+
+### 🔸 **What is GraalVM & what are the purposes of it?**
+
+- **GraalVM** is a high-performance runtime that provides support for multiple languages and execution modes.
+- It is designed to run applications written in Java, JavaScript, Python, Ruby, R, and other languages.
+- It includes a just-in-time (JIT) compiler, an ahead-of-time (AOT) compiler, and a polyglot runtime.
+- GraalVM is designed to improve the performance of applications by optimizing the execution of code at runtime.
+- It also provides support for native image generation, which allows applications to be compiled into native executables for faster startup times and lower memory usage.
+- GraalVM is used in various scenarios, including:
+  - Running polyglot applications that use multiple languages.
+  - Optimizing the performance of Java applications.
+  - Generating native images for faster startup times and lower memory usage.
+  - Running applications in a serverless environment.
+  - Running applications in a containerized, cloud-native environment.
+- GraalVM is compatible with existing Java applications and libraries, making it easy to integrate into existing projects.
+- It is also designed to be extensible, allowing developers to create custom languages and tools that can run on the GraalVM runtime.
 
 
