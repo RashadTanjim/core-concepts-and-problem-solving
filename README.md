@@ -13,7 +13,9 @@ This repository is a curated collection of **core computer science concepts** an
 
 ## 🗂️ Repository Layout
 
-- `cs-core-concepts/`: Markdown notes on Java, OOP, JVM, concurrency, and related topics.
+- `cs-core-concepts/java-and-oop`: Markdown notes on Java, OOP, JVM, concurrency, and related topics.
+- `cs-core-concepts/project-management-best-practices/`: Notes on project management, including Agile methodologies and best practices.
+- `algorithms/`: Java implementations of various algorithms, including sorting, searching, and graph algorithms.
 - `src/leetcode/`: Java implementations of algorithmic problems with clear explanations and testable code.
 - `README.md`: Overview, usage instructions, and contribution guidelines.
 

@@ -1658,4 +1658,259 @@ scheduler.scheduleAtFixedRate(() -> checkHealth(), 0, 10, TimeUnit.SECONDS);
 Why not just use plain threads?
 > Threads are heavyweight and low-level. `CompletableFuture` or `ExecutorService` are preferable for better scalability, error handling, and clean API chaining.
 
+---
+
+### 🔸 **What is JNI (Java Native Interface)?**
+- **JNI** allows Java code to interact with native applications and libraries written in C, C++, or other languages.
+- Used for **performance-critical tasks**, accessing **system-level resources**, or using **legacy native code**.
+
+#### **Key Concepts**
+- **Native Method**: Declared in Java using the `native` keyword, implemented in C/C++.
+- **`System.loadLibrary()`**: Loads the native library (.dll, .so).
+- **Header Generation**: Use `javac` and `javah` (or `javac -h`) to generate C headers from Java classes.
+
+#### **Example**
+```java
+public class NativeExample {
+    static {
+        System.loadLibrary("nativeLib");
+    }
+    public native int add(int a, int b);
+}
+```
+**C Implementation (nativeLib.c):**
+```c
+#include <jni.h>
+#include "NativeExample.h"
+
+JNIEXPORT jint JNICALL Java_NativeExample_add(JNIEnv *env, jobject obj, jint a, jint b) {
+    return a + b;
+}
+```
+
+#### **Steps to Use JNI**
+1. Write Java class with `native` methods.
+2. Compile Java and generate header: `javac -h . NativeExample.java`
+3. Implement native code in C/C++.
+4. Compile native code to shared library.
+5. Load and use in Java.
+
+#### **When to Use JNI?**
+- Integrating with platform-specific features.
+- Reusing existing native libraries.
+- Performance optimization (rarely needed for most apps).
+
+
+---
+
+### 🔸 **What is JIT Compilation?**
+- **JIT (Just-In-Time)** compilation optimizes Java bytecode into native machine code at runtime.
+- Improves performance by compiling frequently executed code paths.
+- Part of the JVM's **HotSpot** compiler.
+- Two modes: **client** (quick startup) and **server** (optimized performance).
+- Adaptive optimization: JVM monitors code execution and optimizes hot paths.
+- Reduces overhead of interpreting bytecode.
+- Can be tuned with flags like `-XX:CompileThreshold` to control when methods are compiled.
+- Supports **Tiered Compilation**: combines both client and server modes for better startup and throughput.
+- Example:
+```sh
+java -XX:+TieredCompilation -Xms512m -Xmx4g MyApp
+```
+
+---
+
+
+### 🔸 **JIT Compilation vs AOT Compilation**
+| Feature       | JIT Compilation | AOT Compilation |
+|---------------|----------------|----------------|
+| Compilation Time | At runtime | At build time |
+| Execution Speed | Faster (optimized) | Slower (less optimized) |
+| Memory Usage | Higher (due to native code) | Lower (no native code) |
+| Portability  | Less portable (native code) | More portable (bytecode) |
+| Use Case     | Long-running apps | Short-lived apps |
+
+
+---
+
+### 🔸 **JIT Compilation Process**
+1. **Bytecode Loading**: JVM loads `.class` files.
+2. **Bytecode Execution**: JVM interprets bytecode.
+3. **Hotspot Detection**: JVM identifies frequently executed methods (hot spots).
+4. **Compilation**: JIT compiler compiles hot spots to native code.
+5. **Execution**: Native code is executed directly by the CPU.
+6. **Optimization**: JIT compiler applies optimizations (inlining, loop unrolling).
+7. **Adaptive Optimization**: JVM monitors performance and re-optimizes if needed.
+8. **Garbage Collection**: JIT-compiled code is managed by the JVM's garbage collector.
+9. **Deoptimization**: If optimizations are no longer valid, JIT can revert to interpreted mode.
+10. **Tiered Compilation**: Combines client and server modes for better performance.
+11. **Profiling**: JVM collects runtime data for further optimizations.
+12. **Feedback Loop**: JIT compiler uses profiling data to improve future compilations.
+13. **Native Code Caching**: JIT-compiled code can be cached for reuse.
+14. **Runtime Monitoring**: JVM monitors performance and adjusts compilation strategies.
+15. **Dynamic Recompilation**: JIT can recompile methods based on runtime behavior.
+16. **Thread Safety**: JIT-compiled code is thread-safe and synchronized with the JVM.
+17. **Native Code Execution**: JIT-compiled code is executed directly by the CPU.
+18. **Performance Tuning**: JIT compiler can be tuned with JVM flags for specific use cases.
+19. **Profiling Feedback**: JIT compiler uses profiling feedback to optimize code paths.
+20. **Runtime Adaptation**: JIT compiler adapts to changing runtime conditions for optimal performance.
+21. **Garbage Collection Interaction**: JIT-compiled code interacts with the JVM's garbage collector for memory management.
+22. **Native Code Optimization**: JIT compiler applies various optimizations to native code for better performance.
+23. **Hotspot Recompilation**: JIT compiler can recompile hot spots based on runtime profiling data.
+24. **Performance Monitoring**: JIT compiler monitors performance metrics to adjust compilation strategies.
+25. **Runtime Profiling**: JIT compiler collects runtime profiling data for further optimizations.
+26. **Adaptive Inlining**: JIT compiler can inline methods based on runtime profiling data.
+27. **Dynamic Optimization**: JIT compiler applies dynamic optimizations based on runtime behavior.
+28. **Native Code Generation**: JIT compiler generates native code for execution on the CPU.
+29. **Runtime Adaptation**: JIT compiler adapts to changing runtime conditions for optimal performance.
+30. **Performance Profiling**: JIT compiler collects performance profiling data for further optimizations.
+31. **Adaptive Optimization**: JIT compiler applies adaptive optimizations based on runtime profiling data.
+32. **Runtime Monitoring**: JIT compiler monitors runtime performance to adjust compilation strategies.
+33. **Native Code Execution**: JIT-compiled code is executed directly by the CPU.
+34. **Performance Tuning**: JIT compiler can be tuned with JVM flags for specific use cases.
+
+
+---
+
+### 🔸 **Java Memory Management**
+- **Heap Memory**: Where Java objects are stored.
+- **Stack Memory**: Where method calls and local variables are stored.
+- **Metaspace**: Stores class metadata (replaced PermGen in Java 8).
+- **Garbage Collection (GC)**: Automatic memory management to reclaim memory from unreachable objects.
+- **Generational GC**: Divides heap into Young, Old, and Permanent generations.
+- **Young Generation**: Where new objects are allocated.
+- **Old Generation**: Where long-lived objects are moved.
+
+---
+
+### 🔸 **Garbage Collection Phases**:
+  - **Mark**: Identify reachable objects.
+  - **Sweep**: Reclaim memory from unmarked objects.
+  - **Compact**: Move objects to reduce fragmentation.
+
+---
+### 🔸 **Garbage Collection Tuning**:
+  - **Heap Size**: `-Xms` (initial size), `-Xmx` (maximum size).
+  - **GC Algorithm**: `-XX:+UseG1GC`, `-XX:+UseParallelGC`, etc.
+  - **Pause Time Goals**: `-XX:MaxGCPauseMillis`.
+  - **GC Logging**: `-Xlog:gc*` for detailed GC logs.
+
+---
+
+### 🔸  **Garbage Collector Types**:
+  - **Serial GC**: Single-threaded, simple.
+  - **Parallel GC**: Multi-threaded, high throughput.
+  - **G1 GC**: Region-based, predictable pause times.
+  - **ZGC**: Low-latency, handles large heaps.
+  - **Shenandoah GC**: Low-pause time, concurrent.
+  - **Epsilon GC**: No-op, for performance testing.
+  - **CMS GC**: Concurrent Mark-Sweep, low pause times.
+  - **JEP 394**: Pattern Matching for `instanceof`.
+  - **JEP 395**: Records.
+  - **JEP 396**: Sealed Classes.
+  - **JEP 397**: Sealed Interfaces.
+  - **JEP 398**: Pattern Matching for `switch`.
+  - **JEP 399**: Foreign Function & Memory API.
+  - **JEP 400**: Vector API.
+
+---
+
+### 🔸 **Garbage Collection Algorithms**:
+  - **Mark and Sweep**: Marks reachable objects, sweeps unmarked ones.
+  - **Copying**: Copies live objects to a new space.
+  - **Generational**: Divides heap into generations for efficiency.
+  - **Concurrent Mark-Sweep (CMS)**: Concurrently marks and sweeps.
+  - **G1 GC**: Region-based, minimizes pause times.
+  - **ZGC**: Low-latency, handles large heaps.
+  - **Shenandoah GC**: Concurrent, low-pause time.
+  - **Epsilon GC**: No-op, for performance testing.
+  - **Garbage Collection Tuning**:
+  - **Heap Size**: `-Xms` (initial size), `-Xmx` (maximum size).
+  - **GC Algorithm**: `-XX:+UseG1GC`, `-XX:+UseParallelGC`, etc.
+  - **Pause Time Goals**: `-XX:MaxGCPauseMillis`.
+  - **GC Logging**: `-Xlog:gc*` for detailed GC logs.
+
+
+---
+
+### 🔸 **Garbage Collection Monitoring**:
+
+  - **JVisualVM**: Visualize memory usage and GC activity.
+  - **Java Mission Control**: Advanced profiling and monitoring.
+  - **JConsole**: Monitor memory usage and GC activity.
+  - **JMX (Java Management Extensions)**: Monitor and manage Java applications.
+  - **JFR (Java Flight Recorder)**: Low-overhead profiling.
+
+---
+
+### 🔸 **Garbage Collection Best Practices**:
+  - Use appropriate GC algorithm based on application needs.
+    - **G1 GC** for low pause times.
+    - **Parallel GC** for high throughput.
+    - **ZGC** for low-latency applications.
+    - Monitor and tune heap size based on application behavior.
+    - Use `-Xms` and `-Xmx` to set initial and maximum heap sizes.
+  - Avoid excessive object creation and use object pooling where possible.
+  - Use weak references for caches to allow GC to reclaim memory.
+  - Profile and monitor memory usage regularly.
+  - Use tools like JVisualVM, Java Mission Control, and JFR for monitoring.
+
+---
+
+### 🔸 **Garbage Collection FAQs**:
+  - **Q: What is the difference between minor and major GC?**
+    - A: Minor GC collects garbage from the Young Generation, while major GC collects from the Old Generation.
+  - **Q: How can I force garbage collection?**
+    - A: Use `System.gc()`, but it's not guaranteed to run immediately.
+  - **Q: What is a memory leak in Java?**
+    - A: A memory leak occurs when objects are no longer needed but are still referenced, preventing GC from reclaiming memory.
+  - **Q: How do I identify memory leaks?**
+    - A: Use profiling tools like JVisualVM or Java Mission Control to analyze heap dumps and identify unreachable objects.
+
+---
+
+
+### 🔸 **Java 8 Features**
+- **Lambda Expressions**: Anonymous functions for functional programming.
+- **Streams API**: Process collections in a functional style.
+- **Optional Class**: Handle null values gracefully.
+- **Default Methods**: Add methods to interfaces without breaking existing implementations.
+- **Method References**: Shorten lambda expressions.
+- **Functional Interfaces**: Interfaces with a single abstract method.
+- **Nashorn JavaScript Engine**: Execute JavaScript code in Java applications.
+- **Date and Time API**: New date/time classes for better date handling.
+- **CompletableFuture**: Asynchronous programming with futures.
+- **Type Annotations**: Annotations can be applied to types.
+- **Repeatable Annotations**: Multiple annotations of the same type on a single element.
+- **New APIs**: New APIs for I/O, networking, and concurrency.
+- **JavaFX**: New GUI framework for building rich client applications.
+
+
+---
+
+
+### 🔸 **Java vs Kotlin vs Groovy**
+| Feature         | Java                      | Kotlin                    | Groovy                     |
+|------------------|--------------------------|---------------------------|----------------------------|
+| Syntax           | Verbose                  | Concise                   | Dynamic                    |
+| Null Safety      | No                       | Yes                       | No                         |
+| Type Inference   | Limited                  | Yes                       | Yes                        |
+| Functional Style  | Limited                  | Yes                       | Yes                        |
+| Interoperability | Java only                | Fully interoperable with Java | Groovy can call Java classes |
+| Compilation      | Compiled to bytecode     | Compiled to bytecode      | Interpreted or compiled    |
+| Lambdas          | Yes                      | Yes                       | Yes                        |
+| Extension Functions | No                   | Yes                       | No                         |
+| Coroutines       | No                       | Yes                       | No                         |
+| DSL Support       | Limited                 | Excellent                 | Good                       |
+| IDE Support      | Excellent (Eclipse, IntelliJ) | Excellent (IntelliJ) | Good (Eclipse, IntelliJ) |
+| Community        | Large                   | Growing                   | Large                      |
+| Use Cases        | Enterprise apps, Android | Android, Web, Server-side | Scripting, Testing, DSLs  |
+| Performance      | High                    | High                      | Moderate                   |
+| Learning Curve   | Moderate                | Easy                      | Easy                       |
+| Libraries        | Extensive               | Extensive                 | Extensive                  |
+| Ecosystem        | Mature                  | Growing                   | Mature                     |
+| Tooling          | Excellent (Maven, Gradle) | Excellent (Gradle)      | Good (Grails)             |
+| Community Support | Large                  | Growing                   | Large                      |
+| Adoption         | High                    | Growing                   | Moderate                   |
+| Popularity       | High                    | Growing                   | Moderate                   |
+
 
