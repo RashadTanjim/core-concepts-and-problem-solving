@@ -1,27 +1,39 @@
 # CS Java Core Concepts and Object-Oriented Programming
 
-It's a combined list of Java Core Concepts! I'll answer each one concisely with explanations and code samples where necessary.
+It's a combined list of Java Core Concepts! I'll answer each one concisely with explanations and code samples where
+necessary.
+
+### 🔸 **What is Java?**
+
+Java is a high-level, object-oriented programming language developed by Sun Microsystems (now owned by Oracle). It is
+designed to be platform-independent, secure, and robust.
+Java is widely used for building enterprise applications, mobile applications (Android), and web applications.
 
 ---
 
 ### 🔸 **What’s the difference between JDK, JRE, and JVM?**
+
 - **JDK (Java Development Kit)**: Includes everything needed for Java development—JRE, compilers, and debugging tools.
-- **JRE (Java Runtime Environment)**: Contains JVM and libraries required to run Java applications but does not include compilers.
+- **JRE (Java Runtime Environment)**: Contains JVM and libraries required to run Java applications but does not include
+  compilers.
 - **JVM (Java Virtual Machine)**: Converts Java bytecode into machine code and executes it.
 
 ---
 
 ### 🔸 **Why is Java considered platform-independent?**
-Java code is compiled into **bytecode** (`.class` files) which is executed by the JVM. Since each OS has its own JVM, Java programs can run anywhere without modification (Write Once, Run Anywhere).
+
+Java code is compiled into **bytecode** (`.class` files) which is executed by the JVM. Since each OS has its own JVM,
+Java programs can run anywhere without modification (Write Once, Run Anywhere).
 
 ---
 
 ### 🔸 **Difference between an abstract class and an interface?**
-| Feature           | Abstract Class | Interface |
-|------------------|---------------|-----------|
-| Methods         | Can have both abstract and concrete methods | Only abstract methods (before Java 8) |
-| Variables       | Can have instance variables | Only static & final variables |
-| Inheritance     | Can extend only one abstract class | Can implement multiple interfaces |
+
+| Feature     | Abstract Class                              | Interface                             |
+|-------------|---------------------------------------------|---------------------------------------|
+| Methods     | Can have both abstract and concrete methods | Only abstract methods (before Java 8) |
+| Variables   | Can have instance variables                 | Only static & final variables         |
+| Inheritance | Can extend only one abstract class          | Can implement multiple interfaces     |
 
 ```java
 abstract class Animal {
@@ -33,21 +45,29 @@ interface Pet {
 }
 
 class Dog extends Animal implements Pet {
-    void makeSound() { System.out.println("Bark"); }
-    public void play() { System.out.println("Playing!"); }
+    void makeSound() {
+        System.out.println("Bark");
+    }
+
+    public void play() {
+        System.out.println("Playing!");
+    }
 }
 ```
 
 ---
 
 ### 🔸 **What’s the role of `final`, `finally`, and `finalize` in Java?**
-- **`final`**: Used for constants (`final int x=10;`), method restriction (`final void show(){}`), and class restriction (`final class A{}`).
+- **`final`**: Used for constants (`final int x=10;`), method restriction (`final void show(){}`), and class
+  restriction (`final class A{}`).
 - **`finally`**: A block that executes after `try-catch`, ensuring cleanup.
 - **`finalize`**: A method called by the Garbage Collector before an object is removed.
 
 ```java
 class Demo {
-    protected void finalize() { System.out.println("Object destroyed"); }
+    protected void finalize() {
+        System.out.println("Object destroyed");
+    }
 }
 ```
 
@@ -60,6 +80,7 @@ class Demo {
 ```java
 class Demo {
     int a = 10;  // Stored in heap
+
     void show() {
         int b = 20; // Stored in stack
     }
@@ -74,12 +95,16 @@ class Demo {
 
 ```java
 class A {
-    void show(int a) { System.out.println(a); } // Overloading
+    void show(int a) {
+        System.out.println(a);
+    } // Overloading
 }
 
 class B extends A {
     @Override
-    void show(int a) { System.out.println("Overridden: " + a); } // Overriding
+    void show(int a) {
+        System.out.println("Overridden: " + a);
+    } // Overriding
 }
 ```
 
@@ -103,8 +128,13 @@ Multiple constructors with different parameters.
 
 ```java
 class Car {
-    Car() { System.out.println("Default Constructor"); }
-    Car(String model) { System.out.println("Car model: " + model); }
+    Car() {
+        System.out.println("Default Constructor");
+    }
+
+    Car(String model) {
+        System.out.println("Car model: " + model);
+    }
 }
 ```
 
@@ -115,11 +145,16 @@ Used to call parent class constructors or methods.
 
 ```java
 class A {
-    A() { System.out.println("Parent constructor"); }
+    A() {
+        System.out.println("Parent constructor");
+    }
 }
 
 class B extends A {
-    B() { super(); System.out.println("Child constructor"); }
+    B() {
+        super();
+        System.out.println("Child constructor");
+    }
 }
 ```
 
@@ -130,7 +165,9 @@ Used to initialize static variables.
 
 ```java
 class Demo {
-    static { System.out.println("Static block executed first"); }
+    static {
+        System.out.println("Static block executed first");
+    }
 }
 ```
 
@@ -141,8 +178,14 @@ Used to call another constructor in the same class.
 
 ```java
 class A {
-    A() { this(10); System.out.println("Default Constructor"); }
-    A(int x) { System.out.println("Parameterized Constructor: " + x); }
+    A() {
+        this(10);
+        System.out.println("Default Constructor");
+    }
+
+    A(int x) {
+        System.out.println("Parameterized Constructor: " + x);
+    }
 }
 ```
 
@@ -161,8 +204,12 @@ class A {
 - **Composition**: "Has-a" relationship (Car has Engine).
 
 ```java
-class Engine {}
-class Car { Engine engine; }
+class Engine {
+}
+
+class Car {
+    Engine engine;
+}
 ```
 
 ---
@@ -171,11 +218,22 @@ class Car { Engine engine; }
 When a class inherits from two interfaces that have the same method. Java solves this using default methods.
 
 ```java
-interface A { default void show() { System.out.println("A"); } }
-interface B { default void show() { System.out.println("B"); } }
+interface A {
+    default void show() {
+        System.out.println("A");
+    }
+}
+
+interface B {
+    default void show() {
+        System.out.println("B");
+    }
+}
 
 class C implements A, B {
-    public void show() { A.super.show(); } // Explicitly choosing
+    public void show() {
+        A.super.show();
+    } // Explicitly choosing
 }
 ```
 
@@ -185,6 +243,8 @@ class C implements A, B {
 - Security (prevents modification)
 - Caching (String Pool)
 - Thread Safety
+- Strings are immutable, meaning once created, they cannot be changed.
+- This is done for security, performance, and thread-safety reasons.
 
 ```java
 String s = "Hello";
@@ -193,11 +253,64 @@ s.concat(" World");  // Doesn't modify original string
 
 ---
 
+### 🔸 **What is the String Pool in Java?**
+The String Pool is a special memory area in the heap where Java stores string literals. It helps save memory by reusing
+immutable string objects.
+
+```java
+String s1 = "Hello";
+String s2 = "Hello"; // s1 and s2 point to the same object in the String Pool
+```
+
+---
+
+### 🔸 **Difference between `String`, `StringBuilder`, and `StringBuffer`?**
+
+| Feature     | `String` | `StringBuilder` | `StringBuffer` |
+|-------------|----------|-----------------|----------------|
+| Immutable   | ✅ Yes    | ❌ No            | ❌ No           |
+| Thread-Safe | ❌ No     | ❌ No            | ✅ Yes          |
+| Performance | Slower   | Faster          | Slower         |
+
+```java
+String str = "Hello"; // Immutable
+StringBuilder sb = new StringBuilder("Hello"); // Mutable, not thread-safe
+StringBuffer sbr = new StringBuffer("Hello"); // Mutable, thread-safe
+```
+
+---
+
 ### 🔸 **ArrayList vs. LinkedList, key differences?**
-| Feature      | ArrayList | LinkedList |
-|-------------|----------|-----------|
-| Access Time | Fast (O(1)) | Slow (O(n)) |
-| Insertion/Deletion | Slow (O(n)) | Fast (O(1)) |
+
+| Feature            | ArrayList         | LinkedList            |
+|--------------------|-------------------|-----------------------|
+| Access Time        | Fast (O(1))       | Slow (O(n))           |
+| Insertion/Deletion | Slow (O(n))       | Fast (O(1))           |
+| Memory Usage       | Less (contiguous) | More (non-contiguous) |
+
+---
+
+### 🔸 **HashMap vs HashSet**
+
+| Feature        | HashMap            | HashSet                      |
+|----------------|--------------------|------------------------------|
+| Key-Value Pair | ✅ Yes              | ❌ No                         |
+| Duplicates     | ❌ No               | ✅ No                         |
+| Null Values    | ✅ Yes (1 null key) | ✅ Yes (multiple null values) |
+
+---
+
+### 🔸 **HashMap Load Factors**
+- **Load factor** is a measure that decides when to increase the capacity of the `HashMap` to maintain efficient
+  performance.
+- **Default load factor** is `0.75`. When the number of entries exceeds `capacity * load factor`, the map is resized (
+  rehashing).
+- **Lower load factor**: Less memory efficient, but faster lookups.
+- **Higher load factor**: More memory efficient, but slower lookups due to more collisions.
+- You can set the load factor in the constructor:
+  ```java
+  HashMap<String, Integer> map = new HashMap<>(16, 0.75f);
+  ```
 
 ---
 
@@ -205,10 +318,28 @@ s.concat(" World");  // Doesn't modify original string
 An error that occurs at runtime.
 
 ```java
-try {
-    int x = 10 / 0;
-} catch (ArithmeticException e) {
-    System.out.println("Cannot divide by zero");
+try{
+int x = 10 / 0;
+}catch(
+ArithmeticException e){
+        System.out.
+
+println("Cannot divide by zero");
+}
+```
+
+---
+
+### 🔸 **Difference between `throw` and `throws`?**
+
+| Feature | `throw`                               | `throws`                             |
+|---------|---------------------------------------|--------------------------------------|
+| Purpose | Used to throw an exception explicitly | Declares an exception that may occur |
+| Used in | Method body                           | Method signature                     |
+
+```java
+void method() throws IOException {
+    throw new IOException("Error occurred");
 }
 ```
 
@@ -225,7 +356,9 @@ try {
 
 ```java
 class MyThread extends Thread {
-    public void run() { System.out.println("Thread running"); }
+    public void run() {
+        System.out.println("Thread running");
+    }
 }
 ```
 
@@ -245,11 +378,13 @@ volatile int x = 10;
 When two threads wait on each other to release resources.
 
 ```java
-synchronized(obj1) { synchronized(obj2) { /* Deadlock scenario */ } }
+synchronized(obj1){synchronized(obj2){ /* Deadlock scenario */ }}
 ```
+
 Avoided by always acquiring locks in the same order.
 
 ---
+
 ### 🔸 **Use of `wait()` and `notify()` methods in threads?**
 These are used for **inter-thread communication** in Java.
 
@@ -277,11 +412,20 @@ public class ThreadExample {
         SharedResource obj = new SharedResource();
 
         new Thread(() -> {
-            try { obj.waitMethod(); } catch (InterruptedException e) { e.printStackTrace(); }
+            try {
+                obj.waitMethod();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }).start();
 
         new Thread(() -> {
-            try { Thread.sleep(1000); obj.notifyMethod(); } catch (InterruptedException e) { e.printStackTrace(); }
+            try {
+                Thread.sleep(1000);
+                obj.notifyMethod();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }).start();
     }
 }
@@ -290,13 +434,15 @@ public class ThreadExample {
 ---
 
 ### 🔸 **`synchronized` vs. `volatile` in Java?**
-| Feature       | `synchronized` | `volatile` |
-|--------------|---------------|------------|
-| Usage        | Locks methods/blocks | Ensures visibility of changes to a variable |
-| Performance  | More overhead due to locking | Faster, no locking |
-| Prevents Race Condition | ✅ Yes | ❌ No |
+
+| Feature                 | `synchronized`               | `volatile`                                  |
+|-------------------------|------------------------------|---------------------------------------------|
+| Usage                   | Locks methods/blocks         | Ensures visibility of changes to a variable |
+| Performance             | More overhead due to locking | Faster, no locking                          |
+| Prevents Race Condition | ✅ Yes                        | ❌ No                                        |
 
 Example of **`volatile`**:
+
 ```java
 class Shared {
     volatile boolean flag = false;
@@ -316,6 +462,40 @@ synchronized(obj) {
     obj.notifyAll(); // All waiting threads wake up
 }
 ```
+
+---
+
+### 🔸 **What is the `java.util` package?**
+The `java.util` package contains utility classes for data structures, collections, and other utility functions.
+
+- **Collections Framework**: `List`, `Set`, `Map`, etc.
+- **Date and Time**: `Date`, `Calendar`, `LocalDateTime`.
+- **Random Number Generation**: `Random
+- **Utility Classes**: `Collections`, `Arrays`.
+- **Properties**: For configuration files.
+- **Observer Pattern**: `Observable`, `Observer`.
+- **Regular Expressions**: `Pattern`, `Matcher`.
+- **Concurrency Utilities**: `Timer`, `ThreadPoolExecutor`.
+- **Functional Interfaces**: `Function`, `Consumer`, `Supplier`.
+- **Stream API**: For functional-style operations on collections.
+- **Optional**: For handling optional values.
+- **UUID**: For generating unique identifiers.
+- **Resource Bundles**: For internationalization (i18n).
+- **BitSet**: For manipulating bits.
+- **Stack**: For stack operations.
+- **Queue**: For queue operations.
+- **Deque**: For double-ended queue operations.
+- **PriorityQueue**: For priority queue operations.
+- **LinkedList**: For linked list operations.
+- **Vector**: For dynamic arrays.
+- **Hashtable**: For key-value pairs with synchronization.
+- **Properties**: For key-value pairs with persistence.
+- **Scanner**: For reading input from various sources.
+- **Random**: For generating random numbers.
+- **Timer**: For scheduling tasks.
+- **TimerTask**: For creating tasks to be scheduled by Timer.
+- **Locale**: For localization and internationalization.
+- **ResourceBundle**: For managing locale-specific objects.
 
 ---
 
@@ -348,12 +528,57 @@ public class ThreadPoolExample {
 
 ---
 
+### 🔸 **What is the `java.util.stream` package?**
+The `java.util.stream` package provides a **functional approach** to processing sequences of elements (collections,
+arrays) in a declarative way.
+
+- **Streams**: Represent a sequence of elements.
+- **Intermediate Operations**: `filter()`, `map()`, `sorted()`.
+- **Terminal Operations**: `collect()`, `forEach()`, `reduce()`.
+- **Parallel Streams**: For parallel processing.
+- **Collectors**: For collecting results (e.g., `toList()`, `toSet()`).
+- **Optional**: For handling optional values.
+- **FlatMap**: For flattening nested structures.
+- **Distinct**: For removing duplicates.
+- **Limit/Skip**: For limiting or skipping elements.
+- **Peek**: For debugging.
+- **Match**: For checking conditions (e.g., `anyMatch()`, `allMatch()`).
+- **Count**: For counting elements.
+- **Reduce**: For reducing elements to a single value.
+- **GroupingBy**: For grouping elements by a classifier function.
+- **PartitioningBy**: For partitioning elements into two groups.
+- **Joining**: For joining strings.
+- **Summarizing**: For summarizing elements (e.g., `summarizingInt()`).
+- **Mapping**: For transforming elements.
+- **Boxing/Unboxing**: For converting between primitives and objects.
+- **FlatMapToInt/Double/Long**: For flattening and mapping to primitive types.
+- **IntStream/DoubleStream/LongStream**: For working with primitive streams.
+- **Collectors.toMap()**: For collecting elements into a map.
+- **Collectors.toSet()**: For collecting elements into a set.
+- **Collectors.toList()**: For collecting elements into a list.
+- **Collectors.groupingBy()**: For grouping elements by a classifier function.
+- **Collectors.partitioningBy()**: For partitioning elements into two groups.
+- **Collectors.teeing()**: For combining two collectors.
+- **Collectors.mapping()**: For transforming elements during collection.
+- **Collectors.counting()**: For counting elements.
+- **Collectors.summingInt()**: For summing integer values.
+- **Collectors.averagingInt()**: For averaging integer values.
+- **Collectors.summarizingInt()**: For summarizing integer values.
+- **Collectors.joining()**: For joining strings.
+- **Collectors.groupingByConcurrent()**: For concurrent grouping.
+- **Collectors.toConcurrentMap()**: For collecting into a concurrent map.
+- **Collectors.toConcurrentSet()**: For collecting into a concurrent set.
+- **Collectors.toConcurrentList()**: For collecting into a concurrent list.
+
+---
+
 ### 🔸 **Difference between `HashMap` and `TreeMap`?**
-| Feature       | `HashMap` | `TreeMap` |
-|--------------|----------|-----------|
-| Ordering     | No order | Sorted order (natural ordering) |
-| Performance  | O(1) average | O(log n) |
-| Null Keys    | ✅ Allowed | ❌ Not allowed |
+
+| Feature     | `HashMap`    | `TreeMap`                       |
+|-------------|--------------|---------------------------------|
+| Ordering    | No order     | Sorted order (natural ordering) |
+| Performance | O(1) average | O(log n)                        |
+| Null Keys   | ✅ Allowed    | ❌ Not allowed                   |
 
 ```java
 Map<Integer, String> map = new HashMap<>();
@@ -367,15 +592,17 @@ Map<Integer, String> treeMap = new TreeMap<>(map);  // Sorted
 ---
 
 ### 🔸 **Difference between `Iterator` and `ListIterator`?**
-| Feature        | `Iterator` | `ListIterator` |
-|---------------|-----------|--------------|
-| Traversal    | Forward only | Forward & Backward |
-| Modify List  | ❌ No add | ✅ Can add elements |
+
+| Feature     | `Iterator`   | `ListIterator`     |
+|-------------|--------------|--------------------|
+| Traversal   | Forward only | Forward & Backward |
+| Modify List | ❌ No add     | ✅ Can add elements |
 
 ```java
 List<String> list = new ArrayList<>(List.of("A", "B", "C"));
 ListIterator<String> it = list.listIterator();
-while (it.hasNext()) System.out.println(it.next());
+while (it.hasNext()) 
+    System.out.println(it.next());
 ```
 
 ---
@@ -386,9 +613,14 @@ Used to define **natural ordering** of objects.
 ```java
 class Student implements Comparable<Student> {
     int age;
-    Student(int age) { this.age = age; }
 
-    public int compareTo(Student s) { return this.age - s.age; }
+    Student(int age) {
+        this.age = age;
+    }
+
+    public int compareTo(Student s) {
+        return this.age - s.age;
+    }
 }
 ```
 
@@ -418,7 +650,9 @@ Extend `Exception` for checked exceptions or `RuntimeException` for unchecked on
 
 ```java
 class MyException extends Exception {
-    MyException(String message) { super(message); }
+    MyException(String message) {
+        super(message);
+    }
 }
 
 class Test {
@@ -470,8 +704,17 @@ It **does not** guarantee atomicity!
 - **Method Overriding** (Runtime polymorphism)
 
 ```java
-class Animal { void sound() { System.out.println("Animal sound"); } }
-class Dog extends Animal { void sound() { System.out.println("Bark"); } }
+class Animal {
+    void sound() {
+        System.out.println("Animal sound");
+    }
+}
+
+class Dog extends Animal {
+    void sound() {
+        System.out.println("Bark");
+    }
+}
 ```
 
 ---
@@ -495,7 +738,8 @@ try {
 An interface with **no methods**, used for tagging.
 
 ```java
-interface Serializable {}  // Marker Interface
+interface Serializable {
+}  // Marker Interface
 ```
 
 ---
@@ -525,9 +769,10 @@ if (lock1.tryLock()) {
 
 ---
 
-
 ### 🔸 **What is the `volatile` keyword?**
-The `volatile` keyword is used to indicate that a variable's value may be changed by different threads. It ensures visibility of changes to variables across threads.
+
+The `volatile` keyword is used to indicate that a variable's value may be changed by different threads. It ensures
+visibility of changes to variables across threads.
 
 ```java
 class Shared {
@@ -550,11 +795,12 @@ Collections.sort(list); // Sorts the list
 ---
 
 ### 🔸 **Difference between local and instance variables?**
-| Feature       | Local Variable | Instance Variable |
-|--------------|---------------|-------------------|
-| Scope        | Inside a method | Inside a class but outside methods |
-| Default Value | ❌ No default value | ✅ Default value assigned |
-| Stored in    | Stack memory | Heap memory |
+
+| Feature       | Local Variable     | Instance Variable                  |
+|---------------|--------------------|------------------------------------|
+| Scope         | Inside a method    | Inside a class but outside methods |
+| Default Value | ❌ No default value | ✅ Default value assigned           |
+| Stored in     | Stack memory       | Heap memory                        |
 
 Example:
 ```java
@@ -569,10 +815,24 @@ class Example {
 
 ---
 
+### 🔸 **What is the `transient` keyword?**
+The `transient` keyword is used to indicate that a field should not be serialized. When an object is serialized,
+transient fields are ignored.
+
+```java
+class User implements Serializable {
+    String username;
+    transient String password; // Not serialized
+}
+```
+
+---
+
 ### 🔸 **Explain the diamond problem in Java and its solution.**
 The **diamond problem** occurs when multiple inheritance leads to ambiguity.
 
 Example (in C++ but not Java):
+
 ```cpp
 class A { void display() {} };
 class B : public A {};
@@ -581,12 +841,24 @@ class D : public B, public C {}; // Diamond problem
 ```
 
 #### **Solution in Java: Use interfaces!**
+
 Java does **not allow multiple class inheritance**, but you can use **interfaces**:
+
 ```java
-interface A { default void show() { System.out.println("A"); } }
-interface B extends A {}
-interface C extends A {}
-class D implements B, C {} // No ambiguity
+interface A {
+    default void show() {
+        System.out.println("A");
+    }
+}
+
+interface B extends A {
+}
+
+interface C extends A {
+}
+
+class D implements B, C {
+} // No ambiguity
 ```
 
 ---
@@ -597,7 +869,10 @@ Example:
 ```java
 class Example {
     int x;
-    Example(int x) { this.x = x; } // 'this' differentiates instance variable from parameter
+
+    Example(int x) {
+        this.x = x;
+    } // 'this' differentiates instance variable from parameter
 }
 ```
 
@@ -608,9 +883,36 @@ Defining **multiple constructors** with different parameters.
 
 ```java
 class Example {
-    Example() { System.out.println("No-arg constructor"); }
-    Example(int x) { System.out.println("Parameterized constructor"); }
+    Example() {
+        System.out.println("No-arg constructor");
+    }
+
+    Example(int x) {
+        System.out.println("Parameterized constructor");
+    }
 }
+```
+
+---
+
+### 🔸 **What is the `instanceof` operator?**
+The `instanceof` operator checks if an object is an instance of a specific class or interface.
+
+```java
+class Animal {
+}
+
+class Dog extends
+        Animal {
+}
+
+Animal a = new Dog();
+System.out.
+
+println(a instanceof Dog); // true
+System.out.
+
+println(a instanceof Animal); // true
 ```
 
 ---
@@ -631,7 +933,9 @@ class Example {
 Example:
 ```java
 String s = "Hello";
-s.concat(" World"); // Creates a new object; does not modify 's'
+s.
+
+concat(" World"); // Creates a new object; does not modify 's'
 ```
 
 ---
@@ -641,6 +945,7 @@ s.concat(" World"); // Creates a new object; does not modify 's'
 String s1 = "abc"; // Stored in String Pool
 String s2 = new String("abc"); // Stored in Heap
 ```
+
 - `"abc"` goes to the **String Pool**, avoiding duplication.
 - `new String("abc")` creates **a new object** in the heap.
 
@@ -652,10 +957,15 @@ Used to call **parent class methods or constructors**.
 Example:
 ```java
 class Parent {
-    Parent() { System.out.println("Parent constructor"); }
+    Parent() {
+        System.out.println("Parent constructor");
+    }
 }
+
 class Child extends Parent {
-    Child() { super(); } // Calls Parent's constructor
+    Child() {
+        super();
+    } // Calls Parent's constructor
 }
 ```
 
@@ -666,8 +976,11 @@ Used to **initialize static variables** before main execution.
 
 ```java
 class Example {
-    static { System.out.println("Static block executed!"); }
+    static {
+        System.out.println("Static block executed!");
+    }
 }
+
 public class Test {
     public static void main(String[] args) {
         Example obj = new Example();
@@ -707,14 +1020,17 @@ void method3() { int x = 10 / 0; } // Exception propagates
 ---
 
 ### 🔸 **Difference between `throw` and `throws`?**
-| Feature       | `throw` | `throws` |
-|--------------|--------|---------|
-| Purpose     | Manually throw exception | Declare exception |
-| Used in    | Method body | Method signature |
+
+| Feature | `throw`                  | `throws`          |
+|---------|--------------------------|-------------------|
+| Purpose | Manually throw exception | Declare exception |
+| Used in | Method body              | Method signature  |
 
 Example:
 ```java
-void method() throws IOException { throw new IOException("Error"); }
+void method() throws IOException {
+    throw new IOException("Error");
+}
 ```
 
 ---
@@ -736,11 +1052,12 @@ try {
 ---
 
 ### 🔸 **Difference between a process and a thread?**
-| Feature      | Process | Thread |
-|-------------|---------|--------|
-| Definition  | Independent execution | Part of a process |
-| Memory      | Own memory space | Shared memory |
-| Communication | Slow (IPC) | Fast (shared memory) |
+
+| Feature       | Process               | Thread               |
+|---------------|-----------------------|----------------------|
+| Definition    | Independent execution | Part of a process    |
+| Memory        | Own memory space      | Shared memory        |
+| Communication | Slow (IPC)            | Fast (shared memory) |
 
 ---
 
@@ -784,11 +1101,12 @@ Avoid it by:
 ---
 
 ### 🔸 **Synchronized vs. volatile in Java?**
-| Feature        | `synchronized` | `volatile` |
-|--------------|--------------|----------|
-| Locks       | ✅ Yes | ❌ No |
-| Atomicity   | ✅ Yes | ❌ No |
-| Performance | ❌ Slower | ✅ Faster |
+
+| Feature     | `synchronized` | `volatile` |
+|-------------|----------------|------------|
+| Locks       | ✅ Yes          | ❌ No       |
+| Atomicity   | ✅ Yes          | ❌ No       |
+| Performance | ❌ Slower       | ✅ Faster   |
 
 ---
 
@@ -798,12 +1116,9 @@ Avoid it by:
 
 ---
 
-### 🔸 **What is the difference between `StringBuilder` and `StringBuffer`?**
-| Feature       | `StringBuilder` | `StringBuffer` |
-|--------------|----------------|---------------|
-| Mutability   | ✅ Mutable | ✅ Mutable |
-| Thread-Safety | ❌ No | ✅ Yes (Synchronized) |
-| Performance  | ✅ Faster | ❌ Slower |
+### 🔸 **What is a thread pool?**
+A thread pool is a collection of pre-initialized threads that can be reused for executing multiple tasks, improving
+performance and resource management.
 
 Example:
 ```java
@@ -834,9 +1149,14 @@ System.out.println(p.name()); // Alice
 
 Example:
 ```java
-sealed class Vehicle permits Car, Bike {}
-final class Car extends Vehicle {}  // Allowed
-final class Bike extends Vehicle {} // Allowed
+sealed class Vehicle permits Car, Bike {
+}
+
+final class Car extends Vehicle {
+}  // Allowed
+
+final class Bike extends Vehicle {
+} // Allowed
 ```
 
 ---
@@ -874,21 +1194,29 @@ Example:
 ```java
 class Student implements Comparable<Student> {
     int age;
-    public Student(int age) { this.age = age; }
-    public int compareTo(Student s) { return this.age - s.age; } // Ascending
+
+    public Student(int age) {
+        this.age = age;
+    }
+
+    public int compareTo(Student s) {
+        return this.age - s.age;
+    } // Ascending
 }
 ```
 
 ---
 
 ### 🔸 **Difference between `Comparator` and `Comparable`**
-| Feature       | `Comparable` | `Comparator` |
-|--------------|-------------|-------------|
-| Package      | `java.lang` | `java.util` |
+
+| Feature       | `Comparable`         | `Comparator`       |
+|---------------|----------------------|--------------------|
+| Package       | `java.lang`          | `java.util`        |
 | Sorting Logic | **Inside the class** | **Separate class** |
-| Method       | `compareTo()` | `compare()` |
+| Method        | `compareTo()`        | `compare()`        |
 
 Example:
+
 ```java
 Comparator<Student> byAge = (s1, s2) -> Integer.compare(s1.age, s2.age);
 ```
@@ -896,14 +1224,16 @@ Comparator<Student> byAge = (s1, s2) -> Integer.compare(s1.age, s2.age);
 ---
 
 ### 🔸 **What is the difference between `synchronized` and `Lock`?**
-| Feature        | `synchronized` | `Lock` (ReentrantLock) |
-|---------------|---------------|-----------------------|
-| Flexibility   | ❌ Less flexible | ✅ More flexible |
-| Performance   | ❌ Slower | ✅ Faster |
-| Explicit Locking | ❌ No | ✅ Yes |
-| Try-Lock Mechanism | ❌ No | ✅ Yes |
+
+| Feature            | `synchronized`  | `Lock` (ReentrantLock) |
+|--------------------|-----------------|------------------------|
+| Flexibility        | ❌ Less flexible | ✅ More flexible        |
+| Performance        | ❌ Slower        | ✅ Faster               |
+| Explicit Locking   | ❌ No            | ✅ Yes                  |
+| Try-Lock Mechanism | ❌ No            | ✅ Yes                  |
 
 Example:
+
 ```java
 Lock lock = new ReentrantLock();
 lock.lock();
@@ -926,9 +1256,10 @@ System.out.println(threadLocal.get()); // 5
 ---
 
 ### 🔸 **What is the difference between Callable and Runnable?**
-| Feature    | `Runnable` | `Callable` |
-|-----------|-----------|-----------|
-| Return Type | `void` | **Returns a value** |
+
+| Feature            | `Runnable`              | `Callable`                    |
+|--------------------|-------------------------|-------------------------------|
+| Return Type        | `void`                  | **Returns a value**           |
 | Exception Handling | ❌ No checked exceptions | ✅ Supports checked exceptions |
 
 Example:
@@ -943,6 +1274,7 @@ Future<Integer> future = executor.submit(task);
 - Used for **parallel processing** (divide-and-conquer).
 
 Example:
+
 ```java
 class Task extends RecursiveTask<Integer> {
     protected Integer compute() { return 1; } // Example
@@ -954,11 +1286,12 @@ pool.invoke(new Task());
 ---
 
 ### 🔸 **Difference between `ConcurrentHashMap` and `HashMap`?**
-| Feature         | `ConcurrentHashMap` | `HashMap` |
-|---------------|-----------------|---------|
-| Thread Safety | ✅ Yes | ❌ No |
-| Performance   | ✅ Faster (Segmented Locks) | ❌ Slower |
-| Null Keys     | ❌ Not allowed | ✅ Allowed |
+
+| Feature       | `ConcurrentHashMap`        | `HashMap` |
+|---------------|----------------------------|-----------|
+| Thread Safety | ✅ Yes                      | ❌ No      |
+| Performance   | ✅ Faster (Segmented Locks) | ❌ Slower  |
+| Null Keys     | ❌ Not allowed              | ✅ Allowed |
 
 ---
 
@@ -966,6 +1299,7 @@ pool.invoke(new Task());
 - **Thread-safe** queue for **producer-consumer** problems.
 
 Example:
+
 ```java
 BlockingQueue<Integer> queue = new ArrayBlockingQueue<>(10);
 queue.put(1);  // Blocks if full
@@ -975,10 +1309,11 @@ queue.take();  // Blocks if empty
 ---
 
 ### 🔸 **Difference between `TreeMap`, `HashMap`, and `LinkedHashMap`**
-| Feature      | `TreeMap` | `HashMap` | `LinkedHashMap` |
-|-------------|---------|---------|--------------|
-| Ordering    | ✅ Sorted | ❌ No order | ✅ Insertion order |
-| Performance | ❌ Slower | ✅ Fastest | ✅ Medium |
+
+| Feature     | `TreeMap` | `HashMap`  | `LinkedHashMap`   |
+|-------------|-----------|------------|-------------------|
+| Ordering    | ✅ Sorted  | ❌ No order | ✅ Insertion order |
+| Performance | ❌ Slower  | ✅ Fastest  | ✅ Medium          |
 
 ---
 
@@ -989,19 +1324,43 @@ queue.take();  // Blocks if empty
 Example:
 ```java
 interface MyInterface {
-    default void display() { System.out.println("Default Method"); }
+    default void display() {
+        System.out.println("Default Method");
+    }
 }
 ```
 
 ---
 
+### 🔸 **What is a `static` method in an interface?**
+
+- Introduced in Java 8.
+- Allows defining **static methods** in interfaces.
+- Can be called without an instance.
+- Useful for utility methods.
+- Cannot be overridden.
+- Example:
+
+```java
+interface MyInterface {
+    static void staticMethod() {
+        System.out.println("Static Method");
+    }
+}
+MyInterface.staticMethod(); // Call without instance
+```
+
+---
+
 ### 🔸 **What is the difference between `filter()` and `map()` in Streams?**
-| Function | `filter()` | `map()` |
-|----------|----------|---------|
-| Purpose | Filters elements | Transforms elements |
-| Return Type | `Stream<T>` | `Stream<R>` |
+
+| Function    | `filter()`       | `map()`             |
+|-------------|------------------|---------------------|
+| Purpose     | Filters elements | Transforms elements |
+| Return Type | `Stream<T>`      | `Stream<R>`         |
 
 Example:
+
 ```java
 List<Integer> numbers = List.of(1, 2, 3);
 numbers.stream().filter(n -> n % 2 == 0).forEach(System.out::println); // 2
@@ -1021,15 +1380,40 @@ names.forEach(System.out::println);
 
 ---
 
+### 🔸 **What is the `Optional` class in Java?**
+- Introduced in Java 8.
+- Used to avoid **NullPointerExceptions**.
+- Represents a value that may or may not be present.
+- Provides methods like `isPresent()`, `ifPresent()`, `orElse()`, and `map()`.
+- Example:
+```java
+Optional<String> name = Optional.ofNullable(null);
+name.ifPresent(n -> System.out.println(n)); // Does nothing
+String value = name.orElse("Default Name");
+System.out.println(value); // Prints "Default Name"
+```
+
+---
+
 ### 🔸 **What is the Factory Pattern?**
 - Creates objects **without exposing the instantiation logic**.
 
 Example:
 ```java
-interface Car { void drive(); }
-class BMW implements Car { public void drive() { System.out.println("BMW driving"); } }
+interface Car {
+    void drive();
+}
+
+class BMW implements Car {
+    public void drive() {
+        System.out.println("BMW driving");
+    }
+}
+
 class CarFactory {
-    static Car getCar(String type) { return new BMW(); }
+    static Car getCar(String type) {
+        return new BMW();
+    }
 }
 ```
 
@@ -1041,7 +1425,10 @@ class CarFactory {
 Example:
 ```java
 class NewsPublisher extends Observable {
-    void publish(String news) { setChanged(); notifyObservers(news); }
+    void publish(String news) {
+        setChanged();
+        notifyObservers(news);
+    }
 }
 ```
 
@@ -1053,13 +1440,14 @@ JMM defines how **threads interact through memory** and ensures:
 - Atomicity
 - Ordering
 
-### 🔸 **Key Concepts:**
-| Concept | Explanation |
-|---------|------------|
+#### **Key Concepts:**
+
+| Concept                         | Explanation                                              |
+|---------------------------------|----------------------------------------------------------|
 | **Happens-before relationship** | Ensures visibility & ordering guarantees across threads. |
-| **Volatile variables** | Ensures visibility but **not atomicity**. |
-| **Synchronization** | Provides both visibility & atomicity. |
-| **Final field semantics** | Ensures safe publication of objects. |
+| **Volatile variables**          | Ensures visibility but **not atomicity**.                |
+| **Synchronization**             | Provides both visibility & atomicity.                    |
+| **Final field semantics**       | Ensures safe publication of objects.                     |
 
 Example of **Happens-Before Rule**:
 ```java
@@ -1078,6 +1466,39 @@ class SharedResource {
 
 ---
 
+### 🔸 **What is the ExecutorService?**
+- Part of the `java.util.concurrent` package.
+- Manages a pool of threads for executing tasks.
+- Provides methods like `submit()`, `invokeAll()`, and `shutdown()`.
+- Supports **thread pooling** and **task scheduling**.
+- Improves performance by reusing threads.
+- Handles thread lifecycle management.
+- Supports **asynchronous task execution**.
+- Can be configured with different thread pool types (fixed, cached, etc.).
+- Supports **task prioritization**.
+- Provides **error handling** and **task cancellation**.
+- Supports **scheduled tasks** with `ScheduledExecutorService`.
+- Can be used for **parallel processing**.
+- Supports **future results** with `Future<T>`.
+- Can be used with **Callable** for tasks that return results.
+- Supports **timeout** for task execution.
+- Can be used with **ForkJoinPool** for parallel tasks.
+- Supports **task queuing** with `BlockingQueue`.
+- Supports **task rejection policies**.
+- Can be used with **CompletableFuture** for non-blocking tasks.
+- Supports **monitoring** and **management** of thread pools.
+- Can be used with **ThreadFactory** for custom thread creation.
+- Supports **task dependencies** with `CompletionService`.
+- Can be used with **CountDownLatch** for synchronization.
+- Supports **CyclicBarrier** for coordinating multiple threads.
+- Can be used with **Semaphore** for controlling access to resources.
+- Supports **Exchanger** for thread communication.
+- Can be used with **Phaser** for dynamic thread coordination.
+- Supports **ThreadPoolExecutor** for custom thread pool configurations.
+- Can be used with **ScheduledThreadPoolExecutor** for scheduled tasks.
+
+---
+
 ### 🔸 **Why use `ExecutorService` instead of manually creating threads?**
 - **Efficient thread reuse** 🏎
 - **Better resource management**
@@ -1090,31 +1511,38 @@ executor.submit(() -> System.out.println("Task executed"));
 executor.shutdown();
 ```
 
+---
+
 ### 🔸 **Thread Pool Types**
-| Pool Type | Description |
-|-----------|------------|
-| **FixedThreadPool** | Fixed number of threads. Best for CPU-bound tasks. |
-| **CachedThreadPool** | Dynamically grows. Best for short-lived tasks. |
-| **SingleThreadExecutor** | Ensures tasks execute sequentially. |
-| **WorkStealingPool** | Uses **ForkJoinPool** for parallelism. |
+
+| Pool Type                | Description                                        |
+|--------------------------|----------------------------------------------------|
+| **FixedThreadPool**      | Fixed number of threads. Best for CPU-bound tasks. |
+| **CachedThreadPool**     | Dynamically grows. Best for short-lived tasks.     |
+| **SingleThreadExecutor** | Ensures tasks execute sequentially.                |
+| **WorkStealingPool**     | Uses **ForkJoinPool** for parallelism.             |
 
 ---
 
 ### 🔸 **JVM Architecture Components**
+
 - **ClassLoader** (Loads `.class` files)
 - **Runtime Memory Areas**:
-  - **Heap** (Objects stored)
-  - **Stack** (Method calls & local vars)
-  - **Metaspace** (Stores class metadata)
+    - **Heap** (Objects stored)
+    - **Stack** (Method calls & local vars)
+    - **Metaspace** (Stores class metadata)
 - **Execution Engine**
 - **Garbage Collector (GC)**
 
+---
+
 ### 🔸 **Garbage Collection (GC) Strategies**
-| GC Type | Best For | Key Mechanism |
-|---------|---------|---------------|
-| **Serial GC** | Small apps | Single-threaded, simple. |
-| **Parallel GC** | High throughput | Uses multiple threads. |
-| **G1 GC** | Large heaps | Predictable pause times. |
+
+| GC Type            | Best For          | Key Mechanism                             |
+|--------------------|-------------------|-------------------------------------------|
+| **Serial GC**      | Small apps        | Single-threaded, simple.                  |
+| **Parallel GC**    | High throughput   | Uses multiple threads.                    |
+| **G1 GC**          | Large heaps       | Predictable pause times.                  |
 | **ZGC** (Java 11+) | Ultra-low latency | Handles **very large** heaps efficiently. |
 
 Example: **Tuning GC with JVM Flags**
@@ -1146,6 +1574,54 @@ public class ReflectionExample {
 }
 ```
 
+---
+
+### 🔸 **What is a Proxy in Java?**
+- A class that **acts as an intermediary** for another class.
+- Used in **AOP** (Aspect-Oriented Programming).
+- Dynamic proxies can be created using `java.lang.reflect.Proxy`.
+- Can intercept method calls.
+- Useful for logging, security, etc.
+- Example:
+  ```java
+  import java.lang.reflect.*;
+  import java.util.*; 
+  
+  class RealClass {
+      public void doSomething() { System.out.println("Doing something!"); }
+  }
+  
+  class ProxyHandler implements InvocationHandler {
+      private final Object target;
+  
+      public ProxyHandler(Object target) {
+          this.target = target;
+      }
+  
+      @Override
+      public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+          System.out.println("Before method call");
+          Object result = method.invoke(target, args);
+          System.out.println("After method call");
+          return result;
+      }
+  }
+  
+  public class ProxyExample {
+      public static void main(String[] args) {
+          RealClass real = new RealClass();
+          RealClass proxy = (RealClass) Proxy.newProxyInstance(
+              real.getClass().getClassLoader(),
+              new Class[]{RealClass.class},
+              new ProxyHandler(real)
+          );
+          proxy.doSomething();
+      }
+  }
+  ```
+
+---
+
 ### 🔸 **Dynamic Proxy Example (Used in Spring AOP)**:
 ```java
 InvocationHandler handler = (proxy, method, args) -> {
@@ -1156,6 +1632,130 @@ InvocationHandler handler = (proxy, method, args) -> {
 };
 ```
 
+---
+
+### 🔸 **What is AOP?**
+- **Aspect-Oriented Programming**.
+- Allows separation of cross-cutting concerns (e.g., logging, security).
+- Uses **aspects**, **join points**, and **advice**.
+- Spring AOP uses **proxies** to implement AOP.
+- Example:
+  ```java
+  @Aspect
+  public class LoggingAspect {
+      @Before("execution(* com.example.service.*.*(..))")
+      public void logBefore(JoinPoint joinPoint) {
+          System.out.println("Before method: " + joinPoint.getSignature());
+      }
+  }
+  ```
+
+---
+
+### 🔸 **What is Dependency Injection (DI)?**
+- A design pattern used to implement **Inversion of Control (IoC)**.
+- Allows a class to receive its dependencies from an external source rather than creating them itself.
+- Promotes **loose coupling** and **testability**.
+- Commonly used in frameworks like **Spring**.
+- Example:
+  ```java
+  @Component
+  public class UserService {
+      private final UserRepository userRepository;
+
+      @Autowired
+      public UserService(UserRepository userRepository) {
+          this.userRepository = userRepository;
+      }
+  }
+  ```
+  
+---
+
+### 🔸 **Java Security**
+- **Java Security Manager**: Controls access to resources.
+- **Java Cryptography Architecture (JCA)**: Provides cryptographic operations.
+- **Java Authentication and Authorization Service (JAAS)**: For user authentication.
+- **Java Secure Socket Extension (JSSE)**: For secure network communication.
+- **Java Naming and Directory Interface (JNDI)**: For directory services.
+- **Java Policy Files**: Define permissions for code execution.
+- **Java KeyStore (JKS)**: For storing cryptographic keys and certificates.
+- **Java Secure Coding Guidelines**: Best practices for secure coding.
+- **Java Security APIs**: For secure random number generation, encryption, etc.
+- **Java Access Control**: Using `public`, `private`, `protected`, and package-private access modifiers.
+- **Java Exception Handling**: For handling security-related exceptions.
+- **Java Security Auditing**: Tools for auditing and monitoring security.
+- **Java Security Updates**: Regular updates for vulnerabilities.
+- **Java Security Libraries**: Third-party libraries for enhanced security.
+- **Java Security Frameworks**: Spring Security, Apache Shiro, etc.
+- **Java Security Annotations**: For securing methods and classes.
+- **Java Security Context**: For managing security context in applications.
+
+---
+
+### 🔸 **What is Functional Interface?**
+- An interface with **exactly one abstract method**.
+- Can have multiple default/static methods.
+- Used as the basis for **lambda expressions**.
+- Example:
+  ```java
+  @FunctionalInterface
+  interface MyFunctionalInterface {
+      void myMethod();
+      default void myDefaultMethod() {
+          System.out.println("Default method");
+      }
+  }
+  
+  MyFunctionalInterface obj = () -> System.out.println("Lambda expression");
+  obj.myMethod(); // Calls the lambda expression
+  ```
+  
+---
+
+### 🔸 **Java Socket**
+- A socket is an **endpoint for communication** between two machines.
+- Used for **network programming**.
+- Supports both **TCP** and **UDP** protocols.
+- Example:
+  ```java
+  import java.io.*;
+  import java.net.*;
+
+  public class SocketExample {
+      public static void main(String[] args) throws IOException {
+          Socket socket = new Socket("localhost", 8080);
+          PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+          out.println("Hello Server!");
+          socket.close();
+      }
+  }
+  ```
+  
+---
+
+### 🔸 **Java NIO (New I/O)**
+- Provides **non-blocking I/O** operations.
+- Supports **buffer-oriented** and **channel-based** I/O.
+- Improves performance for large data transfers.
+- Example:
+  ```java
+  import java.nio.*;
+  import java.nio.channels.*;
+  import java.io.*;
+
+  public class NIOExample {
+      public static void main(String[] args) throws IOException {
+          FileChannel fileChannel = FileChannel.open(Paths.get("file.txt"), StandardOpenOption.READ);
+          ByteBuffer buffer = ByteBuffer.allocate(1024);
+          fileChannel.read(buffer);
+          buffer.flip();
+          System.out.println(new String(buffer.array()));
+          fileChannel.close();
+      }
+  }
+  ```
+  
 ---
 
 ### 🔸 **What is Functional Programming in Java?**
@@ -1169,6 +1769,8 @@ Example:
 Function<Integer, Integer> square = x -> x * x;
 System.out.println(square.apply(5)); // 25
 ```
+
+---
 
 ### 🔸 **Reactive Programming & Project Reactor (Spring WebFlux)**
 - **Asynchronous, non-blocking programming** model.
@@ -1185,11 +1787,12 @@ numbers.subscribe(System.out::println);
 ---
 
 ### 🔸 **Parallel Streams vs. Normal Streams**
-| Feature | Normal Stream | Parallel Stream |
-|---------|--------------|----------------|
-| Execution | Sequential | Concurrent |
-| Performance | Slow for large data | Fast for large data |
-| Best Use Case | Small dataset | Large dataset (CPU-intensive) |
+
+| Feature       | Normal Stream       | Parallel Stream               |
+|---------------|---------------------|-------------------------------|
+| Execution     | Sequential          | Concurrent                    |
+| Performance   | Slow for large data | Fast for large data           |
+| Best Use Case | Small dataset       | Large dataset (CPU-intensive) |
 
 Example:
 ```java
@@ -1272,25 +1875,33 @@ public class MyLambdaHandler implements RequestHandler<String, String> {
 ### 🔸 **How Does GC Work in Java?**
 - Java GC **automates memory management** by reclaiming objects that are no longer reachable.
 - Works with **Generational Garbage Collection**:
-  - **Young Generation (Eden, Survivor S1 & S2)**: For short-lived objects.
-  - **Old (Tenured) Generation**: For long-lived objects.
-  - **Metaspace**: Stores class metadata (replaced **PermGen** in Java 8).
+    - **Young Generation (Eden, Survivor S1 & S2)**: For short-lived objects.
+    - **Old (Tenured) Generation**: For long-lived objects.
+    - **Metaspace**: Stores class metadata (replaced **PermGen** in Java 8).
+
+---
 
 ### 🔸 **Garbage Collectors in Java**
-| GC Type | Best Use Case | Key Features |
-|---------|-------------|--------------|
-| **Serial GC (-XX:+UseSerialGC)** | Small apps, single-threaded | Simple, stop-the-world, single-threaded. |
-| **Parallel GC (-XX:+UseParallelGC)** | High-throughput apps | Multi-threaded GC, **default until Java 8**. |
-| **G1 GC (-XX:+UseG1GC)** | Large heaps (>4GB) | Region-based, **predictable pause times**. |
-| **ZGC (-XX:+UseZGC)** | Ultra-low-latency apps | Handles **very large heaps** (up to **16TB**). |
+
+| GC Type                              | Best Use Case               | Key Features                                   |
+|--------------------------------------|-----------------------------|------------------------------------------------|
+| **Serial GC (-XX:+UseSerialGC)**     | Small apps, single-threaded | Simple, stop-the-world, single-threaded.       |
+| **Parallel GC (-XX:+UseParallelGC)** | High-throughput apps        | Multi-threaded GC, **default until Java 8**.   |
+| **G1 GC (-XX:+UseG1GC)**             | Large heaps (>4GB)          | Region-based, **predictable pause times**.     |
+| **ZGC (-XX:+UseZGC)**                | Ultra-low-latency apps      | Handles **very large heaps** (up to **16TB**). |
+
+---
 
 ### 🔸 **How to Tune GC for Performance?**
 Example:
 ```sh
 java -XX:+UseG1GC -Xms2g -Xmx4g -XX:MaxGCPauseMillis=200
 ```
+
 - `-Xms` and `-Xmx` **set heap size**.
 - `-XX:MaxGCPauseMillis=200` **limits GC pause time**.
+
+---
 
 ### 🔸 **GC Logs for Debugging**
 ```sh
@@ -1299,19 +1910,17 @@ java -Xlog:gc
 
 ---
 
-
 ### 🔸 **JVM Components**
 1. **ClassLoader**: Loads `.class` files.
 2. **Runtime Memory Areas**:
-  - **Heap** (Objects, GC-managed)
-  - **Stack** (Method calls, local vars)
-  - **Metaspace** (Class metadata)
+   - **Heap** (Objects, GC-managed)
+   - **Stack** (Method calls, local vars)
+   - **Metaspace** (Class metadata)
 3. **Execution Engine**:
-  - **Interpreter** (executes bytecode line-by-line)
-  - **JIT Compiler** (converts bytecode to native code for performance)
+   - **Interpreter** (executes bytecode line-by-line)
+   - **JIT Compiler** (converts bytecode to native code for performance)
 
 ---
-
 
 ### 🔸 **Class Loading in JVM**
 - **Bootstrap ClassLoader** → Loads `java.lang.*`
@@ -1349,10 +1958,11 @@ System.out.println(intBox.get()); // 10
 ---
 
 ### 🔸 **Generics Wildcards (`? extends`, `? super`)**
-| Wildcard | Use Case |
-|----------|---------|
-| `? extends T` | Accepts T or **subtypes** of T. |
-| `? super T` | Accepts T or **supertypes** of T. |
+
+| Wildcard      | Use Case                          |
+|---------------|-----------------------------------|
+| `? extends T` | Accepts T or **subtypes** of T.   |
+| `? super T`   | Accepts T or **supertypes** of T. |
 
 Example:
 ```java
@@ -1363,18 +1973,55 @@ List<? super Integer> list2 = new ArrayList<Number>(); // ✅ Works
 ---
 
 ### 🔸 **Types of Locks in Java**
-| Lock Type | Feature |
-|-----------|---------|
-| **Intrinsic Locks (`synchronized`)** | Implicit, locks entire object/class. |
-| **Explicit Locks (`ReentrantLock`)** | More control, supports fairness policy. |
-| **ReadWriteLock** | Allows multiple readers, one writer. |
 
-### **`synchronized` vs `ReentrantLock`**
-| Feature | `synchronized` | `ReentrantLock` |
-|---------|--------------|---------------|
-| Locking | Implicit | Explicit (must `lock()` and `unlock()`) |
-| Fairness | No fairness guarantee | Supports fairness (`true` param) |
-| Interruptible | No | Yes (`lockInterruptibly()`) |
+| Lock Type                            | Feature                                 |
+|--------------------------------------|-----------------------------------------|
+| **Intrinsic Locks (`synchronized`)** | Implicit, locks entire object/class.    |
+| **Explicit Locks (`ReentrantLock`)** | More control, supports fairness policy. |
+| **ReadWriteLock**                    | Allows multiple readers, one writer.    |
+
+---
+
+### 🔸 **ReentrantLock vs. ReadWriteLock**
+
+| Lock Type        | Feature                                 |
+|------------------|-----------------------------------------|
+| **ReentrantLock** | Allows reentrant locking.               |
+| **ReadWriteLock** | Multiple readers, one writer.           |
+
+- **ReentrantLock**: Allows a thread to acquire the lock multiple times.
+- **ReadWriteLock**: Allows multiple threads to read simultaneously but only one to write.
+- **Example**:
+- **ReentrantLock**
+  ```java
+  ReentrantLock lock = new ReentrantLock();
+  lock.lock();
+  try {
+      // Critical section
+  } finally {
+      lock.unlock();
+  }
+  ```
+- **ReadWriteLock**
+  ```java
+  ReadWriteLock rwLock = new ReentrantReadWriteLock();
+  rwLock.readLock().lock();
+  try {
+      // Read operation
+  } finally {
+      rwLock.readLock().unlock();
+  }
+  ```
+
+---
+
+### 🔸 **`synchronized` vs `ReentrantLock`**
+
+| Feature       | `synchronized`        | `ReentrantLock`                         |
+|---------------|-----------------------|-----------------------------------------|
+| Locking       | Implicit              | Explicit (must `lock()` and `unlock()`) |
+| Fairness      | No fairness guarantee | Supports fairness (`true` param)        |
+| Interruptible | No                    | Yes (`lockInterruptibly()`)             |
 
 Example: **Using `ReentrantLock`**
 ```java
@@ -1399,6 +2046,7 @@ class MyThread extends Thread {
 }
 new MyThread().start();
 ```
+
 **Using Runnable (Preferred)**
 ```java
 class MyRunnable implements Runnable {
@@ -1412,27 +2060,30 @@ new Thread(new MyRunnable()).start();
 ---
 
 ### 🔸 **Thread States & Lifecycle**
-| State | Description |
-|--------|-------------|
-| **NEW** | Created but not started. |
-| **RUNNABLE** | Ready to run, scheduled by CPU. |
-| **BLOCKED** | Waiting for a lock. |
-| **WAITING** | Waiting indefinitely for another thread (`wait()`). |
-| **TIMED_WAITING** | Waiting for a fixed time (`sleep()`, `join()`). |
-| **TERMINATED** | Execution finished. |
+
+| State             | Description                                         |
+|-------------------|-----------------------------------------------------|
+| **NEW**           | Created but not started.                            |
+| **RUNNABLE**      | Ready to run, scheduled by CPU.                     |
+| **BLOCKED**       | Waiting for a lock.                                 |
+| **WAITING**       | Waiting indefinitely for another thread (`wait()`). |
+| **TIMED_WAITING** | Waiting for a fixed time (`sleep()`, `join()`).     |
+| **TERMINATED**    | Execution finished.                                 |
 
 ---
 
 ### 🔸 **Thread Safety Techniques**
-| Technique | Example |
-|-----------|---------|
-| **Synchronization** | `synchronized` methods |
-| **Locks** | `ReentrantLock` |
-| **Atomic Variables** | `AtomicInteger` |
-| **ThreadLocal** | Per-thread storage |
-| **Immutable Objects** | `final` fields |
+
+| Technique             | Example                |
+|-----------------------|------------------------|
+| **Synchronization**   | `synchronized` methods |
+| **Locks**             | `ReentrantLock`        |
+| **Atomic Variables**  | `AtomicInteger`        |
+| **ThreadLocal**       | Per-thread storage     |
+| **Immutable Objects** | `final` fields         |
 
 Example: **Using `AtomicInteger`**
+
 ```java
 AtomicInteger counter = new AtomicInteger(0);
 counter.incrementAndGet();
@@ -1441,13 +2092,15 @@ counter.incrementAndGet();
 ---
 
 ### 🔸 **Types of Thread Pools**
-| Pool Type | Description |
-|-----------|-------------|
-| **FixedThreadPool(n)** | Fixed number of threads. |
-| **CachedThreadPool** | Dynamically grows/shrinks. |
+
+| Pool Type                | Description                   |
+|--------------------------|-------------------------------|
+| **FixedThreadPool(n)**   | Fixed number of threads.      |
+| **CachedThreadPool**     | Dynamically grows/shrinks.    |
 | **SingleThreadExecutor** | Ensures sequential execution. |
 
 Example:
+
 ```java
 ExecutorService executor = Executors.newFixedThreadPool(5);
 executor.submit(() -> System.out.println("Task running"));
@@ -1495,8 +2148,8 @@ import java.util.concurrent.CompletableFuture;
 public int computeWithCompletableFuture(String text1, String text2) {
     try {
         return CompletableFuture.supplyAsync(() -> solve(text1, text2))
-                                .exceptionally(ex -> 0) // if exception, return 0
-                                .get(); // block until result is ready
+                .exceptionally(ex -> 0) // if exception, return 0
+                .get(); // block until result is ready
     } catch (Exception e) {
         return 0;
     }
@@ -1506,7 +2159,6 @@ public int computeWithCompletableFuture(String text1, String text2) {
 * ✅ `supplyAsync`: runs `solve` in a separate thread (common fork-join pool).
 * ✅ `exceptionally`: handles exceptions like try-catch.
 * ✅ `.get()`: blocks and gets result. You can also use `.join()` (unchecked exceptions) or `.orTimeout(...)`.
-
 
 ### ✅ B. **Using `ExecutorService` (Explicit Thread Pool)**
 
@@ -1534,7 +2186,7 @@ public int computeWithExecutor(String text1, String text2) {
 ### 🔸 **Concurrency Use Cases**
 
 | Use Case                             | Description                                    | Tools                                                         |
-| ------------------------------------ | ---------------------------------------------- | ------------------------------------------------------------- |
+|--------------------------------------|------------------------------------------------|---------------------------------------------------------------|
 | **Parallel Data Processing**         | Speed up heavy computations by dividing tasks. | `ForkJoinPool`, `parallelStream`, `CompletableFuture`         |
 | **Asynchronous I/O**                 | Don't block on DB/Network/file calls.          | `CompletableFuture`, `AsyncRestTemplate`                      |
 | **Web Scraping / API Calls**         | Launch parallel HTTP requests.                 | `ExecutorService`, `CompletableFuture`                        |
@@ -1554,10 +2206,10 @@ CompletableFuture<String> callB = CompletableFuture.supplyAsync(() -> apiCall("B
 String combined = callA.thenCombine(callB, (a, b) -> a + "-" + b).get();
 ```
 
-### 💬 Tips
+### Tips
 
 | Ask                                    | Clarify                                    |
-| -------------------------------------- | ------------------------------------------ |
+|----------------------------------------|--------------------------------------------|
 | “Are these tasks CPU or I/O bound?”    | Helps decide between thread pools vs async |
 | “Should results be ordered or merged?” | Determines need for coordination           |
 | “Any timeout or fallback?”             | Helps show fault tolerance                 |
@@ -1585,8 +2237,8 @@ String result = user.thenCombine(orders, (u, o) -> u + " has " + o).get();
 
 ```java
 CompletableFuture<Integer> future = CompletableFuture.supplyAsync(() -> slowAPI())
-    .orTimeout(2, TimeUnit.SECONDS)
-    .exceptionally(ex -> 0); // fallback
+        .orTimeout(2, TimeUnit.SECONDS)
+        .exceptionally(ex -> 0); // fallback
 ```
 
 ### C. **Heavy Data Processing (CPU-Bound Work)**
@@ -1615,15 +2267,11 @@ for (Task t : tasks) {
 ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
 scheduler.scheduleAtFixedRate(() -> checkHealth(), 0, 10, TimeUnit.SECONDS);
 ```
+Example: Monitoring, caching, health checks.
 
-📌 Example: Monitoring, caching, health checks.
-
----
-
-### 🔸 **Benchmark Thoughts**
-
+**Benchmark Thoughts**
 | Scenario           | Sequential (ms) | Parallel (ms) | Tools               |
-| ------------------ | --------------- | ------------- | ------------------- |
+|--------------------|-----------------|---------------|---------------------|
 | 3 API calls        | \~900ms (300x3) | \~300ms       | `CompletableFuture` |
 | 1M record sum      | \~200ms         | \~40ms        | `parallelStream`    |
 | File parsing (4GB) | \~1.5s          | \~0.7s        | `ExecutorService`   |
@@ -1634,14 +2282,13 @@ scheduler.scheduleAtFixedRate(() -> checkHealth(), 0, 10, TimeUnit.SECONDS);
 * CPU or IO can be overlapped
 
 | Concept                       | What to Say                                                          |
-| ----------------------------- | -------------------------------------------------------------------- |
+|-------------------------------|----------------------------------------------------------------------|
 | **Thread safety**             | Use `ConcurrentHashMap`, `AtomicInteger`                             |
 | **Deadlock**                  | Avoid nested locks, use timeouts                                     |
 | **Asynchrony vs Parallelism** | Asynchrony = non-blocking; Parallel = multiple threads               |
 | **Backpressure**              | Use queues or reactive streams                                       |
 | **Design choice**             | “I chose `CompletableFuture` for async chaining and fallback logic.” |
 | **Metrics**                   | “I monitored thread pool queue sizes and timeouts using Prometheus.” |
-
 
 ---
 
@@ -1672,58 +2319,59 @@ scheduler.scheduleAtFixedRate(() -> checkHealth(), 0, 10, TimeUnit.SECONDS);
 ```
 
 Why not just use plain threads?
-> Threads are heavyweight and low-level. `CompletableFuture` or `ExecutorService` are preferable for better scalability, error handling, and clean API chaining.
+> Threads are heavyweight and low-level. `CompletableFuture` or `ExecutorService` are preferable for better scalability,
+> error handling, and clean API chaining.
 
 ---
-
----
-
 
 ### 🔸 **Sync vs Async**
-| Feature         | Synchronous (Sync)       | Asynchronous (Async)      |  
-|------------------|--------------------------|---------------------------|
-| Blocking         | Yes                      | No                        |
-| Execution        | Sequential               | Concurrent                |
-| Callbacks        | No                       | Yes                       |
-| Error Handling   | Try-catch                | Callbacks or Futures      |
-| Performance      | Slower for I/O-bound tasks | Faster for I/O-bound tasks |
-| Complexity       | Simpler                  | More complex              |
-| Use Cases        | Simple tasks, CPU-bound  | I/O-bound tasks, parallel processing |
-| Libraries        | Java standard libraries   | CompletableFuture, RxJava, Project Reactor |
-| Examples         | File I/O, DB calls       | Web scraping, API calls   |
-| Threading        | Single-threaded          | Multi-threaded            |
-| Scalability      | Limited                  | High                      |
-| Resource Usage   | Higher                   | Lower                     |
-| Debugging        | Easier                   | More complex              |
-| Testing          | Easier                   | More complex              |
-| Error Propagation | Simple                  | Complex                   |
-| Performance      | Slower                   | Faster                    |
 
+| Feature           | Synchronous (Sync)         | Asynchronous (Async)                       |  
+|-------------------|----------------------------|--------------------------------------------|
+| Blocking          | Yes                        | No                                         |
+| Execution         | Sequential                 | Concurrent                                 |
+| Callbacks         | No                         | Yes                                        |
+| Error Handling    | Try-catch                  | Callbacks or Futures                       |
+| Performance       | Slower for I/O-bound tasks | Faster for I/O-bound tasks                 |
+| Complexity        | Simpler                    | More complex                               |
+| Use Cases         | Simple tasks, CPU-bound    | I/O-bound tasks, parallel processing       |
+| Libraries         | Java standard libraries    | CompletableFuture, RxJava, Project Reactor |
+| Examples          | File I/O, DB calls         | Web scraping, API calls                    |
+| Threading         | Single-threaded            | Multi-threaded                             |
+| Scalability       | Limited                    | High                                       |
+| Resource Usage    | Higher                     | Lower                                      |
+| Debugging         | Easier                     | More complex                               |
+| Testing           | Easier                     | More complex                               |
+| Error Propagation | Simple                     | Complex                                    |
+| Performance       | Slower                     | Faster                                     |
 
 ---
 
 ### 🔸 **What is a Virtual Thread?**
+
 - **Virtual threads** are lightweight threads managed by the JVM.
 - **Project Loom** introduces **virtual threads** for lightweight concurrency.
 - **Benefits**:
-  - **Scalability**: Handle thousands of concurrent tasks.
-  - **Simplicity**: Easier to write and maintain async code.
-  - **Performance**: Reduced overhead compared to traditional threads.
+    - **Scalability**: Handle thousands of concurrent tasks.
+    - **Simplicity**: Easier to write and maintain async code.
+    - **Performance**: Reduced overhead compared to traditional threads.
 
 ---
 
 ### 🔸 **What is a Thread Pool?**
+
 - A **thread pool** is a collection of pre-initialized threads that can be reused for executing tasks.
 - It helps manage resources efficiently and reduces the overhead of creating new threads.
 - **Benefits**:
-  - **Improved performance**: Reuses threads instead of creating new ones.
-  - **Resource management**: Limits the number of concurrent threads.
-  - **Task scheduling**: Can schedule tasks for future execution.
+    - **Improved performance**: Reuses threads instead of creating new ones.
+    - **Resource management**: Limits the number of concurrent threads.
+    - **Task scheduling**: Can schedule tasks for future execution.
 - **Types**:
-  - **Fixed Thread Pool**: A fixed number of threads.
-  - **Cached Thread Pool**: Creates new threads as needed, but will reuse previously constructed threads when they are available.
-  - **Single Thread Executor**: A single thread to execute tasks sequentially.
-  - **Scheduled Thread Pool**: Can schedule tasks to run after a delay or periodically.
+    - **Fixed Thread Pool**: A fixed number of threads.
+    - **Cached Thread Pool**: Creates new threads as needed, but will reuse previously constructed threads when they are
+      available.
+    - **Single Thread Executor**: A single thread to execute tasks sequentially.
+    - **Scheduled Thread Pool**: Can schedule tasks to run after a delay or periodically.
 - **Example**:
     ```java
     ExecutorService executor = Executors.newFixedThreadPool(5);
@@ -1733,17 +2381,16 @@ Why not just use plain threads?
     executor.shutdown();
     ```
 - **Best Practices**:
-  - Use appropriate thread pool size based on the workload.
-  - Avoid using too many threads to prevent context switching overhead.
-  - Use `try-with-resources` to ensure proper shutdown of the executor.
-  - Monitor thread pool metrics to adjust the size dynamically.
-  - Use `ScheduledExecutorService` for periodic tasks.
-  - Use `ThreadPoolExecutor` for more control over thread pool behavior.
-  - Use `ForkJoinPool` for parallel processing of tasks.
-  - Use `CompletableFuture` for async tasks with thread pools.
-  - Use `Executors.newWorkStealingPool()` for parallel processing of tasks.
-  - Use `Executors.newSingleThreadExecutor()` for sequential task execution.
-
+    - Use appropriate thread pool size based on the workload.
+    - Avoid using too many threads to prevent context switching overhead.
+    - Use `try-with-resources` to ensure proper shutdown of the executor.
+    - Monitor thread pool metrics to adjust the size dynamically.
+    - Use `ScheduledExecutorService` for periodic tasks.
+    - Use `ThreadPoolExecutor` for more control over thread pool behavior.
+    - Use `ForkJoinPool` for parallel processing of tasks.
+    - Use `CompletableFuture` for async tasks with thread pools.
+    - Use `Executors.newWorkStealingPool()` for parallel processing of tasks.
+    - Use `Executors.newSingleThreadExecutor()` for sequential task execution.
 
 ---
 
@@ -1768,22 +2415,19 @@ Why not just use plain threads?
 
 ---
 
-
 ### 🔸 **What is JNI (Java Native Interface)?**
 - **JNI** allows Java code to interact with native applications and libraries written in C, C++, or other languages.
 - Used for **performance-critical tasks**, accessing **system-level resources**, or using **legacy native code**.
-
-#### **Key Concepts**
 - **Native Method**: Declared in Java using the `native` keyword, implemented in C/C++.
-- **`System.loadLibrary()`**: Loads the native library (.dll, .so).
-- **Header Generation**: Use `javac` and `javah` (or `javac -h`) to generate C headers from Java classes.
-
-#### **Example**
+  - **`System.loadLibrary()`**: Loads the native library (.dll, .so).
+  - **Header Generation**: Use `javac` and `javah` (or `javac -h`) to generate C headers from Java classes.
+- **Example**
 ```java
 public class NativeExample {
     static {
         System.loadLibrary("nativeLib");
     }
+
     public native int add(int a, int b);
 }
 ```
@@ -1809,7 +2453,6 @@ JNIEXPORT jint JNICALL Java_NativeExample_add(JNIEnv *env, jobject obj, jint a, 
 - Reusing existing native libraries.
 - Performance optimization (rarely needed for most apps).
 
-
 ---
 
 ### 🔸 **What is JIT Compilation?**
@@ -1828,16 +2471,15 @@ java -XX:+TieredCompilation -Xms512m -Xmx4g MyApp
 
 ---
 
-
 ### 🔸 **JIT Compilation vs AOT Compilation**
-| Feature       | JIT Compilation | AOT Compilation |
-|---------------|----------------|----------------|
-| Compilation Time | At runtime | At build time |
-| Execution Speed | Faster (optimized) | Slower (less optimized) |
-| Memory Usage | Higher (due to native code) | Lower (no native code) |
-| Portability  | Less portable (native code) | More portable (bytecode) |
-| Use Case     | Long-running apps | Short-lived apps |
 
+| Feature          | JIT Compilation             | AOT Compilation          |
+|------------------|-----------------------------|--------------------------|
+| Compilation Time | At runtime                  | At build time            |
+| Execution Speed  | Faster (optimized)          | Slower (less optimized)  |
+| Memory Usage     | Higher (due to native code) | Lower (no native code)   |
+| Portability      | Less portable (native code) | More portable (bytecode) |
+| Use Case         | Long-running apps           | Short-lived apps         |
 
 ---
 
@@ -1862,7 +2504,8 @@ java -XX:+TieredCompilation -Xms512m -Xmx4g MyApp
 18. **Performance Tuning**: JIT compiler can be tuned with JVM flags for specific use cases.
 19. **Profiling Feedback**: JIT compiler uses profiling feedback to optimize code paths.
 20. **Runtime Adaptation**: JIT compiler adapts to changing runtime conditions for optimal performance.
-21. **Garbage Collection Interaction**: JIT-compiled code interacts with the JVM's garbage collector for memory management.
+21. **Garbage Collection Interaction**: JIT-compiled code interacts with the JVM's garbage collector for memory
+    management.
 22. **Native Code Optimization**: JIT compiler applies various optimizations to native code for better performance.
 23. **Hotspot Recompilation**: JIT compiler can recompile hot spots based on runtime profiling data.
 24. **Performance Monitoring**: JIT compiler monitors performance metrics to adjust compilation strategies.
@@ -1876,7 +2519,6 @@ java -XX:+TieredCompilation -Xms512m -Xmx4g MyApp
 32. **Runtime Monitoring**: JIT compiler monitors runtime performance to adjust compilation strategies.
 33. **Native Code Execution**: JIT-compiled code is executed directly by the CPU.
 34. **Performance Tuning**: JIT compiler can be tuned with JVM flags for specific use cases.
-
 
 ---
 
@@ -1892,91 +2534,91 @@ java -XX:+TieredCompilation -Xms512m -Xmx4g MyApp
 ---
 
 ### 🔸 **Garbage Collection Phases**:
-  - **Mark**: Identify reachable objects.
-  - **Sweep**: Reclaim memory from unmarked objects.
-  - **Compact**: Move objects to reduce fragmentation.
+- **Mark**: Identify reachable objects.
+- **Sweep**: Reclaim memory from unmarked objects.
+- **Compact**: Move objects to reduce fragmentation.
 
 ---
+
 ### 🔸 **Garbage Collection Tuning**:
-  - **Heap Size**: `-Xms` (initial size), `-Xmx` (maximum size).
-  - **GC Algorithm**: `-XX:+UseG1GC`, `-XX:+UseParallelGC`, etc.
-  - **Pause Time Goals**: `-XX:MaxGCPauseMillis`.
-  - **GC Logging**: `-Xlog:gc*` for detailed GC logs.
+- **Heap Size**: `-Xms` (initial size), `-Xmx` (maximum size).
+- **GC Algorithm**: `-XX:+UseG1GC`, `-XX:+UseParallelGC`, etc.
+- **Pause Time Goals**: `-XX:MaxGCPauseMillis`.
+- **GC Logging**: `-Xlog:gc*` for detailed GC logs.
 
 ---
 
 ### 🔸  **Garbage Collector Types**:
-  - **Serial GC**: Single-threaded, simple.
-  - **Parallel GC**: Multi-threaded, high throughput.
-  - **G1 GC**: Region-based, predictable pause times.
-  - **ZGC**: Low-latency, handles large heaps.
-  - **Shenandoah GC**: Low-pause time, concurrent.
-  - **Epsilon GC**: No-op, for performance testing.
-  - **CMS GC**: Concurrent Mark-Sweep, low pause times.
-  - **JEP 394**: Pattern Matching for `instanceof`.
-  - **JEP 395**: Records.
-  - **JEP 396**: Sealed Classes.
-  - **JEP 397**: Sealed Interfaces.
-  - **JEP 398**: Pattern Matching for `switch`.
-  - **JEP 399**: Foreign Function & Memory API.
-  - **JEP 400**: Vector API.
+- **Serial GC**: Single-threaded, simple.
+- **Parallel GC**: Multi-threaded, high throughput.
+- **G1 GC**: Region-based, predictable pause times.
+- **ZGC**: Low-latency, handles large heaps.
+- **Shenandoah GC**: Low-pause time, concurrent.
+- **Epsilon GC**: No-op, for performance testing.
+- **CMS GC**: Concurrent Mark-Sweep, low pause times.
+- **JEP 394**: Pattern Matching for `instanceof`.
+- **JEP 395**: Records.
+- **JEP 396**: Sealed Classes.
+- **JEP 397**: Sealed Interfaces.
+- **JEP 398**: Pattern Matching for `switch`.
+- **JEP 399**: Foreign Function & Memory API.
+- **JEP 400**: Vector API.
 
 ---
 
 ### 🔸 **Garbage Collection Algorithms**:
-  - **Mark and Sweep**: Marks reachable objects, sweeps unmarked ones.
-  - **Copying**: Copies live objects to a new space.
-  - **Generational**: Divides heap into generations for efficiency.
-  - **Concurrent Mark-Sweep (CMS)**: Concurrently marks and sweeps.
-  - **G1 GC**: Region-based, minimizes pause times.
-  - **ZGC**: Low-latency, handles large heaps.
-  - **Shenandoah GC**: Concurrent, low-pause time.
-  - **Epsilon GC**: No-op, for performance testing.
-  - **Garbage Collection Tuning**:
-  - **Heap Size**: `-Xms` (initial size), `-Xmx` (maximum size).
-  - **GC Algorithm**: `-XX:+UseG1GC`, `-XX:+UseParallelGC`, etc.
-  - **Pause Time Goals**: `-XX:MaxGCPauseMillis`.
-  - **GC Logging**: `-Xlog:gc*` for detailed GC logs.
-
+- **Mark and Sweep**: Marks reachable objects, sweeps unmarked ones.
+- **Copying**: Copies live objects to a new space.
+- **Generational**: Divides heap into generations for efficiency.
+- **Concurrent Mark-Sweep (CMS)**: Concurrently marks and sweeps.
+- **G1 GC**: Region-based, minimizes pause times.
+- **ZGC**: Low-latency, handles large heaps.
+- **Shenandoah GC**: Concurrent, low-pause time.
+- **Epsilon GC**: No-op, for performance testing.
+- **Garbage Collection Tuning**:
+- **Heap Size**: `-Xms` (initial size), `-Xmx` (maximum size).
+- **GC Algorithm**: `-XX:+UseG1GC`, `-XX:+UseParallelGC`, etc.
+- **Pause Time Goals**: `-XX:MaxGCPauseMillis`.
+- **GC Logging**: `-Xlog:gc*` for detailed GC logs.
 
 ---
 
 ### 🔸 **Garbage Collection Monitoring**:
-
-  - **JVisualVM**: Visualize memory usage and GC activity.
-  - **Java Mission Control**: Advanced profiling and monitoring.
-  - **JConsole**: Monitor memory usage and GC activity.
-  - **JMX (Java Management Extensions)**: Monitor and manage Java applications.
-  - **JFR (Java Flight Recorder)**: Low-overhead profiling.
+- **JVisualVM**: Visualize memory usage and GC activity.
+- **Java Mission Control**: Advanced profiling and monitoring.
+- **JConsole**: Monitor memory usage and GC activity.
+- **JMX (Java Management Extensions)**: Monitor and manage Java applications.
+- **JFR (Java Flight Recorder)**: Low-overhead profiling.
 
 ---
 
 ### 🔸 **Garbage Collection Best Practices**:
-  - Use appropriate GC algorithm based on application needs.
+- Use appropriate GC algorithm based on application needs.
     - **G1 GC** for low pause times.
     - **Parallel GC** for high throughput.
     - **ZGC** for low-latency applications.
     - Monitor and tune heap size based on application behavior.
     - Use `-Xms` and `-Xmx` to set initial and maximum heap sizes.
-  - Avoid excessive object creation and use object pooling where possible.
-  - Use weak references for caches to allow GC to reclaim memory.
-  - Profile and monitor memory usage regularly.
-  - Use tools like JVisualVM, Java Mission Control, and JFR for monitoring.
+- Avoid excessive object creation and use object pooling where possible.
+- Use weak references for caches to allow GC to reclaim memory.
+- Profile and monitor memory usage regularly.
+- Use tools like JVisualVM, Java Mission Control, and JFR for monitoring.
 
 ---
 
 ### 🔸 **Garbage Collection FAQs**:
-  - **Q: What is the difference between minor and major GC?**
+- **Q: What is the difference between minor and major GC?**
     - A: Minor GC collects garbage from the Young Generation, while major GC collects from the Old Generation.
-  - **Q: How can I force garbage collection?**
+- **Q: How can I force garbage collection?**
     - A: Use `System.gc()`, but it's not guaranteed to run immediately.
-  - **Q: What is a memory leak in Java?**
-    - A: A memory leak occurs when objects are no longer needed but are still referenced, preventing GC from reclaiming memory.
-  - **Q: How do I identify memory leaks?**
-    - A: Use profiling tools like JVisualVM or Java Mission Control to analyze heap dumps and identify unreachable objects.
+- **Q: What is a memory leak in Java?**
+    - A: A memory leak occurs when objects are no longer needed but are still referenced, preventing GC from reclaiming
+      memory.
+- **Q: How do I identify memory leaks?**
+    - A: Use profiling tools like JVisualVM or Java Mission Control to analyze heap dumps and identify unreachable
+      objects.
 
 ---
-
 
 ### 🔸 **Java 8 Features**
 - **Lambda Expressions**: Anonymous functions for functional programming.
@@ -1993,53 +2635,52 @@ java -XX:+TieredCompilation -Xms512m -Xmx4g MyApp
 - **New APIs**: New APIs for I/O, networking, and concurrency.
 - **JavaFX**: New GUI framework for building rich client applications.
 
-
 ---
-
 
 ### 🔸 **JVM Languages: Java vs Kotlin vs Groovy**
-| Feature         | Java                      | Kotlin                    | Groovy                     |
-|------------------|--------------------------|---------------------------|----------------------------|
-| Syntax           | Verbose                  | Concise                   | Dynamic                    |
-| Null Safety      | No                       | Yes                       | No                         |
-| Type Inference   | Limited                  | Yes                       | Yes                        |
-| Functional Style  | Limited                  | Yes                       | Yes                        |
-| Interoperability | Java only                | Fully interoperable with Java | Groovy can call Java classes |
-| Compilation      | Compiled to bytecode     | Compiled to bytecode      | Interpreted or compiled    |
-| Lambdas          | Yes                      | Yes                       | Yes                        |
-| Extension Functions | No                   | Yes                       | No                         |
-| Coroutines       | No                       | Yes                       | No                         |
-| DSL Support       | Limited                 | Excellent                 | Good                       |
-| IDE Support      | Excellent (Eclipse, IntelliJ) | Excellent (IntelliJ) | Good (Eclipse, IntelliJ) |
-| Community        | Large                   | Growing                   | Large                      |
-| Use Cases        | Enterprise apps, Android | Android, Web, Server-side | Scripting, Testing, DSLs  |
-| Performance      | High                    | High                      | Moderate                   |
-| Learning Curve   | Moderate                | Easy                      | Easy                       |
-| Libraries        | Extensive               | Extensive                 | Extensive                  |
-| Ecosystem        | Mature                  | Growing                   | Mature                     |
-| Tooling          | Excellent (Maven, Gradle) | Excellent (Gradle)      | Good (Grails)             |
-| Community Support | Large                  | Growing                   | Large                      |
-| Adoption         | High                    | Growing                   | Moderate                   |
-| Popularity       | High                    | Growing                   | Moderate                   |
 
+| Feature             | Java                          | Kotlin                        | Groovy                       |
+|---------------------|-------------------------------|-------------------------------|------------------------------|
+| Syntax              | Verbose                       | Concise                       | Dynamic                      |
+| Null Safety         | No                            | Yes                           | No                           |
+| Type Inference      | Limited                       | Yes                           | Yes                          |
+| Functional Style    | Limited                       | Yes                           | Yes                          |
+| Interoperability    | Java only                     | Fully interoperable with Java | Groovy can call Java classes |
+| Compilation         | Compiled to bytecode          | Compiled to bytecode          | Interpreted or compiled      |
+| Lambdas             | Yes                           | Yes                           | Yes                          |
+| Extension Functions | No                            | Yes                           | No                           |
+| Coroutines          | No                            | Yes                           | No                           |
+| DSL Support         | Limited                       | Excellent                     | Good                         |
+| IDE Support         | Excellent (Eclipse, IntelliJ) | Excellent (IntelliJ)          | Good (Eclipse, IntelliJ)     |
+| Community           | Large                         | Growing                       | Large                        |
+| Use Cases           | Enterprise apps, Android      | Android, Web, Server-side     | Scripting, Testing, DSLs     |
+| Performance         | High                          | High                          | Moderate                     |
+| Learning Curve      | Moderate                      | Easy                          | Easy                         |
+| Libraries           | Extensive                     | Extensive                     | Extensive                    |
+| Ecosystem           | Mature                        | Growing                       | Mature                       |
+| Tooling             | Excellent (Maven, Gradle)     | Excellent (Gradle)            | Good (Grails)                |
+| Community Support   | Large                         | Growing                       | Large                        |
+| Adoption            | High                          | Growing                       | Moderate                     |
+| Popularity          | High                          | Growing                       | Moderate                     |
 
 ---
 
-
 ### 🔸 **What is GraalVM & what are the purposes of it?**
-
 - **GraalVM** is a high-performance runtime that provides support for multiple languages and execution modes.
 - It is designed to run applications written in Java, JavaScript, Python, Ruby, R, and other languages.
 - It includes a just-in-time (JIT) compiler, an ahead-of-time (AOT) compiler, and a polyglot runtime.
 - GraalVM is designed to improve the performance of applications by optimizing the execution of code at runtime.
-- It also provides support for native image generation, which allows applications to be compiled into native executables for faster startup times and lower memory usage.
+- It also provides support for native image generation, which allows applications to be compiled into native executables
+  for faster startup times and lower memory usage.
 - GraalVM is used in various scenarios, including:
-  - Running polyglot applications that use multiple languages.
-  - Optimizing the performance of Java applications.
-  - Generating native images for faster startup times and lower memory usage.
-  - Running applications in a serverless environment.
-  - Running applications in a containerized, cloud-native environment.
-- GraalVM is compatible with existing Java applications and libraries, making it easy to integrate into existing projects.
-- It is also designed to be extensible, allowing developers to create custom languages and tools that can run on the GraalVM runtime.
+    - Running polyglot applications that use multiple languages.
+    - Optimizing the performance of Java applications.
+    - Generating native images for faster startup times and lower memory usage.
+    - Running applications in a serverless environment.
+    - Running applications in a containerized, cloud-native environment.
+- GraalVM is compatible with existing Java applications and libraries, making it easy to integrate into existing
+  projects.
+- It is also designed to be extensible, allowing developers to create custom languages and tools that can run on the
+  GraalVM runtime.
 
 
