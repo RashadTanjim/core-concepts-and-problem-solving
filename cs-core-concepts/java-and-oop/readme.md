@@ -917,11 +917,25 @@ println(a instanceof Animal); // true
 
 ---
 
-### 🔸 **What are the object-oriented features in Java?**
+### 🔸 **What are the object-oriented programming (OOP) features/ 4 Pillars in Java?**
 1. **Encapsulation** - Data hiding using private fields.
 2. **Inheritance** - One class inherits another.
 3. **Polymorphism** - Method overloading & overriding.
 4. **Abstraction** - Hiding implementation details via abstract classes/interfaces.
+
+---
+
+### 🔸 **What is the difference between `==` and `.equals()`?**
+| Feature       | `==`                     | `.equals()`                |
+|---------------|--------------------------|----------------------------|
+| Comparison    | Reference comparison     | Value comparison           |
+| Used for      | Primitive types & references | Objects (default is reference) |
+```java
+  String s1 = new String("Hello");
+  String s2 = new String("Hello");
+  System.out.println(s1 == s2); // false (different references)
+  System.out.println(s1.equals(s2)); // true (same value)
+```
 
 ---
 
@@ -1030,6 +1044,25 @@ Example:
 ```java
 void method() throws IOException {
     throw new IOException("Error");
+}
+```
+
+---
+
+### 🔸 **What is a checked and unchecked exception?**
+Checked exceptions are exceptions that must be either caught or declared in the method signature using `throws`.
+Example:
+```java
+void readFile() throws IOException {
+    FileReader fr = new FileReader("file.txt"); // Checked exception
+}
+```
+
+Unchecked exceptions are runtime exceptions that do not need to be declared or caught.
+Example:
+```java
+void divide(int a, int b) {
+    int result = a / b; // Unchecked exception (ArithmeticException)
 }
 ```
 
@@ -1285,6 +1318,90 @@ pool.invoke(new Task());
 
 ---
 
+### 🔸 **What is a `ConcurrentHashMap`?**
+- A thread-safe variant of `HashMap`.
+- Allows concurrent access without locking the entire map.
+- Uses **segmented locking** for better performance.
+- Supports **null keys** and values.
+- Allows **parallel processing** of elements.
+- Provides **atomic operations** like `putIfAbsent()`, `remove()`, and `replace()`.
+- Supports **bulk operations** like `forEach()`, `reduce()`, and `search()`.
+- Allows **iterators** to be weakly consistent.
+- Supports **custom concurrency levels**.
+- Provides **high scalability** for concurrent applications.
+- Supports **stream operations** for parallel processing.
+- Allows **bulk updates** using `compute()`, `merge()`, and `forEach()`.
+- Supports **custom partitioning** for better performance.
+- Provides **thread-safe iterators**.
+- Supports **asynchronous operations** using `CompletableFuture`.
+- Allows **custom load factors** for better performance.
+- Supports **custom hashing** for better distribution.
+- Provides **thread-safe bulk operations**.
+- Supports **custom serialization** for distributed systems.
+
+```java
+ConcurrentHashMap<String, Integer> map = new ConcurrentHashMap<>();
+map.put("A", 1);
+map.put("B", 2);
+map.putIfAbsent("A", 3); // Does not overwrite
+System.out.println(map.get("A")); // 1
+```
+
+### 🔸 **What is a `ThreadPoolExecutor`?**
+- A class that manages a pool of threads for executing tasks.
+- Supports different thread pool types like fixed, cached, and scheduled.
+- Allows dynamic resizing of the pool.
+- Supports task scheduling with `ScheduledThreadPoolExecutor`.
+- Provides methods like `submit()`, `invokeAll()`, and `shutdown()`.
+- Allows custom rejection policies for tasks.
+- Supports **thread factory** for creating threads.
+- Provides **monitoring** and **management** of threads.
+- Allows **custom task handling**.
+- Supports **asynchronous task execution**.
+- Provides **thread lifecycle management**.
+- Allows **custom thread naming**.
+- Supports **thread priority**.
+- Provides **thread pooling** for better performance.
+```java
+ExecutorService executor = Executors.newFixedThreadPool(3);
+executor.submit(() -> {
+    System.out.println("Task executed");
+});
+executor.shutdown();
+```
+
+---
+
+### 🔸 **What are ReentrantLock, Semaphore, and CountDownLatch and others?**
+- **ReentrantLock**: A lock that allows a thread to re-enter the lock if it already holds it. Provides more flexibility than `synchronized`.
+- **Semaphore**: A counting semaphore that controls access to a resource pool. It allows a fixed number of threads to access a resource.
+- **CountDownLatch**: A synchronization aid that allows one or more threads to wait until a set of operations being performed in other threads completes.
+- **CyclicBarrier**: A synchronization aid that allows a set of threads to all wait for each other to reach a common barrier point.
+- **Exchanger**: A synchronization point at which threads can swap elements within pairs.
+- **Phaser**: A more flexible version of `CyclicBarrier` and `CountDownLatch` that allows dynamic registration and deregistration of threads.
+- **ReadWriteLock**: A lock that allows multiple threads to read or write to a resource concurrently, improving performance for read-heavy workloads.
+- **StampedLock**: A lock that provides a way to manage read and write locks with a stamp-based mechanism, allowing for optimistic locking.
+- **ThreadFactory**: An interface for creating new threads with custom properties, such as naming and priority.
+- **ThreadPoolExecutor**: A class that manages a pool of threads for executing tasks, providing methods for task submission and management.
+- **ScheduledExecutorService**: An interface for scheduling tasks to run after a delay or periodically.
+- **ForkJoinPool**: A specialized thread pool for parallel processing using the fork/join framework, allowing for efficient task splitting and merging.
+- **Future**: A placeholder for a result that will be available in the future, allowing for asynchronous task execution and retrieval of results.
+- **CompletableFuture**: A class that represents a future result of an asynchronous computation, allowing for non-blocking operations and chaining of tasks.
+- **ExecutorCompletionService**: A service that combines the functionality of an `Executor` and a `BlockingQueue`, allowing for efficient task submission and retrieval of results as they complete.
+- **ScheduledFuture**: A future that represents the result of a scheduled task, allowing for retrieval of the result after a delay.
+- **ThreadPoolExecutor.AbortPolicy**: A rejection policy that throws an exception when a task cannot be accepted for execution.
+- **ThreadPoolExecutor.CallerRunsPolicy**: A rejection policy that runs the task in the calling thread if it cannot be accepted for execution.
+- **ThreadPoolExecutor.DiscardPolicy**: A rejection policy that silently discards the task if it cannot be accepted for execution.
+- **ThreadPoolExecutor.DiscardOldestPolicy**: A rejection policy that discards the oldest unhandled request and then retries the task.
+- **ThreadPoolExecutor**: A class that manages a pool of threads for executing tasks, providing methods for task submission and management.
+- **ScheduledThreadPoolExecutor**: A specialized version of `ThreadPoolExecutor` that supports scheduling tasks to run after a delay or periodically.
+- **ThreadPoolExecutor**: A class that manages a pool of threads for executing tasks, providing methods for task submission and management.
+- **ScheduledThreadPoolExecutor**: A specialized version of `ThreadPoolExecutor` that supports scheduling tasks to run after a delay or periodically.
+- **ThreadPoolExecutor**: A class that manages a pool of threads for executing tasks, providing methods for task submission and management.
+- **ScheduledThreadPoolExecutor**: A specialized version of `ThreadPoolExecutor` that supports scheduling tasks to run after a delay or periodically.
+
+---
+
 ### 🔸 **Difference between `ConcurrentHashMap` and `HashMap`?**
 
 | Feature       | `ConcurrentHashMap`        | `HashMap` |
@@ -1295,10 +1412,28 @@ pool.invoke(new Task());
 
 ---
 
-### 🔸 **What is a BlockingQueue in Java?**
-- **Thread-safe** queue for **producer-consumer** problems.
-
-Example:
+### 🔸 **What is a `BlockingQueue`?**
+- A thread-safe queue that supports blocking operations.
+- Used for **producer-consumer** scenarios.
+- Supports operations like `put()`, `take()`, `offer()`, and `poll()`.
+- Allows bounded and unbounded queues.
+- Supports different implementations like `ArrayBlockingQueue`, `LinkedBlockingQueue`, and `PriorityBlockingQueue`.
+- Provides **fairness policies** for thread access.
+- Supports **timeout operations**.
+- Allows **bulk operations** like `addAll()` and `removeAll()`.
+- Supports **iterator** for traversing elements.
+- Provides **size limits** for bounded queues.
+- Allows **custom capacity** for queues.
+- Supports **priority ordering** for elements.
+- Provides **thread-safe iterators**.
+- Supports **asynchronous operations** using `CompletableFuture`.
+- Allows **custom serialization** for distributed systems.
+- Supports **custom load factors** for better performance.
+- Provides **thread-safe bulk operations**.
+- Supports **custom hashing** for better distribution.
+- Allows **custom partitioning** for better performance.
+- Provides **thread-safe iterators**.
+- Supports **custom serialization** for distributed systems.
 
 ```java
 BlockingQueue<Integer> queue = new ArrayBlockingQueue<>(10);
