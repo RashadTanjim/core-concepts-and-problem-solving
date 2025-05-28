@@ -82,6 +82,8 @@ A curated list of high-impact engineering papers and systems from top tech compa
 * **SIEVE** - A simpler and more effective caching algorithm than LRU.
 * **Caching Strategies at Twitter** - How Twitter scales its caching layer.
 * **Improving Multi-CDN Delivery at Netflix** - Enhancing reliability and performance of global content delivery.
+* **ZooKeeper:** Wait-free Coordination for Internet-scale Systems 
+* **Brewer’s Conjecture** and the Feasibility of Consistent, Available, Partition-Tolerant Web Service
 
 ---
 
@@ -121,6 +123,24 @@ A curated list of high-impact engineering papers and systems from top tech compa
 * **Jepsen** – A framework for distributed systems verification, with fault injection.
 * **CADP (Construction and Analysis of Distributed Processes)** – A toolbox for the design of communication protocols and distributed systems.
 * **PSync** – A partially synchronous language for fault-tolerant distributed algorithms.([GitHub][9], [Wikipedia][4])
+
+---
+
+## 📖 Books & Textbooks
+
+* **Distributed Systems: Principles and Paradigms** – Andrew S. Tanenbaum, Maarten Van Steen
+* **Distributed Systems: An Algorithmic Approach** – Wan Fokkink
+* **Distributed Algorithms** – Nancy Lynch
+* **Distributed Systems: Principles and Paradigms** – Andrew S. Tanenbaum, Maarten Van Steen
+
+---
+
+## 📝 Additional Resources
+
+* **Distributed Systems Reading List** – A comprehensive reading list of distributed systems papers and resources.
+* **Dijkstra Prize** – Awarded for outstanding papers in distributed computing.
+* **Foundational Distributed Systems Papers** – A collection of foundational papers in distributed systems.
+* **Operating Systems Design and Implementation** – A classic textbook on operating systems, including distributed systems concepts.
 
 
 [1]: https://muratbuffalo.blogspot.com/2021/02/foundational-distributed-systems-papers.html?utm_source=chatgpt.com "Foundational distributed systems papers - Metadata"
