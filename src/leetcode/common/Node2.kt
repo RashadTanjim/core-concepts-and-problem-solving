@@ -1,4 +1,4 @@
-package leetcode.helper
+package leetcode.common
 
 internal class Node2 {
     var value: Int = 0

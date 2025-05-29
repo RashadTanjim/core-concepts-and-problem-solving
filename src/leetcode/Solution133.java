@@ -1,6 +1,6 @@
 package leetcode;
 
-import leetcode.helper.Node3;
+import leetcode.common.Node3;
 
 import java.util.HashMap;
 import java.util.HashSet;

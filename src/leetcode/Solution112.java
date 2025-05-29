@@ -1,7 +1,7 @@
 package leetcode;
 
-import leetcode.helper.TreeNode;
-import leetcode.helper.Pair;
+import leetcode.common.TreeNode;
+import leetcode.common.Pair;
 
 import java.util.Stack;
 

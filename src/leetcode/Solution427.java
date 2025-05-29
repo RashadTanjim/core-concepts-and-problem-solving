@@ -1,6 +1,6 @@
 package leetcode;
 
-import leetcode.helper.QuadTree;
+import leetcode.common.QuadTree;
 
 public class Solution427 {
 

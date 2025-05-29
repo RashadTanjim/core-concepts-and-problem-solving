@@ -1,6 +1,6 @@
 package leetcode;
 
-import leetcode.helper.TreeNode;
+import leetcode.common.TreeNode;
 
 public class Solution543 {
     private int maxDiameter = 0;

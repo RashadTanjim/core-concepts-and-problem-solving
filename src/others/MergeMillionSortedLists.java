@@ -1,6 +1,6 @@
 package others;
 
-import leetcode.helper.ListNode;
+import leetcode.common.ListNode;
 
 import java.util.*;
 

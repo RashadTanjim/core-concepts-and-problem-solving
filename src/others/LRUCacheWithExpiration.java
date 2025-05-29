@@ -1,7 +1,7 @@
 package others;
 
 import java.util.*;
-import leetcode.helper.*;
+import leetcode.common.*;
 
 
 class LRUCacheWithExpiration {

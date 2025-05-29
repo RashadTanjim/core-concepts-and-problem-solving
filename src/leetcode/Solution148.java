@@ -1,6 +1,6 @@
 package leetcode;
 
-import leetcode.helper.ListNode;
+import leetcode.common.ListNode;
 
 public class Solution148 {
 

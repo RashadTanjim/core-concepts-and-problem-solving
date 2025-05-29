@@ -1,5 +1,5 @@
 package leetcode;
-import leetcode.helper.ListNode;
+import leetcode.common.ListNode;
 
 public class Solution2 {
     public static void main(String[] args) {

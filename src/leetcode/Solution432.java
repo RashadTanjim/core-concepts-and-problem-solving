@@ -2,7 +2,7 @@ package leetcode;
 
 import java.util.*;
 
-import leetcode.helper.*;
+import leetcode.common.*;
 
 public class Solution432 {  // AllOne()
 

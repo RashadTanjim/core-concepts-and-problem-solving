@@ -1,4 +1,4 @@
-package leetcode.helper
+package leetcode.common
 
 class Bucket(var count: Int) {
     @JvmField

@@ -1,10 +1,9 @@
 package leetcode;
 
-import leetcode.helper.NodeLRU;
+import leetcode.common.NodeLRU;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 public class Solution146 {
 

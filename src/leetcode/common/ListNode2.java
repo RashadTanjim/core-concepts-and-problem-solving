@@ -1,4 +1,4 @@
-package leetcode.helper;
+package leetcode.common;
 
 public class ListNode2 {
     public int val;

@@ -1,4 +1,4 @@
-package leetcode.helper;
+package leetcode.common;
 
 public class QuadTree {  // Node
     public boolean val;

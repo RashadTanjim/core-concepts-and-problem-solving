@@ -1,4 +1,4 @@
-package leetcode.helper;
+package leetcode.common;
 
 public class ListNode {
     public int val;    // intentionally make it public for using directly

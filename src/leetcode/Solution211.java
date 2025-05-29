@@ -1,6 +1,6 @@
 package leetcode;
 
-import leetcode.helper.TrieNode;
+import leetcode.common.TrieNode;
 
 // WordDictionary
 public class Solution211 {

@@ -1,6 +1,6 @@
 package leetcode;
 
-import leetcode.helper.Node2;
+import leetcode.common.Node2;
 
 public class Solution117 {
 

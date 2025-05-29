@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Queue;
 
-import leetcode.helper.TreeNode;
+import leetcode.common.TreeNode;
 
 public class Solution105 {
 

@@ -1,6 +1,6 @@
 package leetcode;
 
-import leetcode.helper.TreeNode;
+import leetcode.common.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;

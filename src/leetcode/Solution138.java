@@ -1,5 +1,5 @@
 package leetcode;
-import leetcode.helper.Node;
+import leetcode.common.Node;
 
 class Solution138 {
 

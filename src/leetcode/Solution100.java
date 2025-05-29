@@ -1,6 +1,6 @@
 package leetcode;
 
-import leetcode.helper.*;
+import leetcode.common.*;
 
 public class Solution100 {
 

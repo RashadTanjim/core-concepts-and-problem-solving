@@ -1,6 +1,6 @@
 package leetcode;
 
-import leetcode.helper.TreeNode;
+import leetcode.common.TreeNode;
 
 public class Solution530 {
     private static int minDiff = Integer.MAX_VALUE;
