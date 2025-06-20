@@ -13,12 +13,10 @@ public class Solution1366 {
         int numPositions = votes[0].length();
         Map<Character, int[]> countMap = new HashMap<>();
 
-        // Initialize map
         for (char c : votes[0].toCharArray()) {
             countMap.put(c, new int[numPositions]);
         }
 
-        // Count votes
         for (String vote : votes) {
             for (int i = 0; i < vote.length(); i++) {
                 char team = vote.charAt(i);
@@ -26,7 +24,6 @@ public class Solution1366 {
             }
         }
 
-        // Sort with custom comparator
         List<Character> teams = new ArrayList<>(countMap.keySet());
         teams.sort((a, b) -> {
             for (int i = 0; i < numPositions; i++) {
@@ -37,7 +34,6 @@ public class Solution1366 {
             return Character.compare(a, b);
         });
 
-        // Build result
         StringBuilder sb = new StringBuilder();
         for (char c : teams) sb.append(c);
         return sb.toString();

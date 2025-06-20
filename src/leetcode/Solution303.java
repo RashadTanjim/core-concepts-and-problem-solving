@@ -3,7 +3,7 @@ package leetcode;
 public class Solution303 {
 
     static class NumArray {
-        private int[] prefix;
+        private final int[] prefix;
 
         public NumArray(int[] nums) {
             prefix = new int[nums.length + 1];
