@@ -270,4 +270,4 @@ class Switch {
 4. **Interface Segregation Principle (ISP)**: Clients should not be forced to implement methods they don’t use.
 5. **Dependency Inversion Principle (DIP)**: High-level modules should depend on abstractions, not on concrete classes.
 
-y following the SOLID principles, code becomes more flexible, reusable, and easier to maintain. 
+By following the SOLID principles, code becomes more flexible, reusable, and easier to maintain. 
