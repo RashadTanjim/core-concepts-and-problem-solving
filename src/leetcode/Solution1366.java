@@ -1,43 +1,55 @@
 package leetcode;
 
-public class Solution1366 {
-    public String[] rankTeams(String[] votes) {
-        int n = votes[0].length();
-        int[][] count = new int[n][26]; // 26 letters for each team
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-        // Count votes for each team
+public class Solution1366 {
+
+    public String rankTeams(String[] votes) {
+        if (votes == null || votes.length == 0) return "";
+
+        int numPositions = votes[0].length();
+        Map<Character, int[]> countMap = new HashMap<>();
+
+        // Initialize map
+        for (char c : votes[0].toCharArray()) {
+            countMap.put(c, new int[numPositions]);
+        }
+
+        // Count votes
         for (String vote : votes) {
-            for (int i = 0; i < n; i++) {
-                count[i][vote.charAt(i) - 'A']++;
+            for (int i = 0; i < vote.length(); i++) {
+                char team = vote.charAt(i);
+                countMap.get(team)[i]++;
             }
         }
 
-        // Create an array of teams with their scores
-        String[] teams = new String[n];
-        for (int i = 0; i < n; i++) {
-            teams[i] = String.valueOf((char) ('A' + i));
-        }
-
-        // Sort teams based on the counts
-        java.util.Arrays.sort(teams, (a, b) -> {
-            for (int i = 0; i < n; i++) {
-                if (count[i][a.charAt(0) - 'A'] != count[i][b.charAt(0) - 'A']) {
-                    return count[i][b.charAt(0) - 'A'] - count[i][a.charAt(0) - 'A'];
+        // Sort with custom comparator
+        List<Character> teams = new ArrayList<>(countMap.keySet());
+        teams.sort((a, b) -> {
+            for (int i = 0; i < numPositions; i++) {
+                if (countMap.get(a)[i] != countMap.get(b)[i]) {
+                    return countMap.get(b)[i] - countMap.get(a)[i];
                 }
             }
-            return a.compareTo(b); // If counts are equal, sort alphabetically
+            return Character.compare(a, b);
         });
 
-        return teams;
+        // Build result
+        StringBuilder sb = new StringBuilder();
+        for (char c : teams) sb.append(c);
+        return sb.toString();
     }
 
     public static void main(String[] args) {
-        Solution1366 solution = new Solution1366();
-        String[] votes = {"ABC", "ACB", "ABC", "ACB", "ACB"};
-        String[] result = solution.rankTeams(votes);
-        for (String team : result) {
-            System.out.print(team + " ");
-        }
-        // Expected output: A B C
+        Solution1366 solver = new Solution1366();
+
+        String[] votes1 = {"ABC", "ACB", "ABC", "ACB", "ACB"};
+        System.out.println(solver.rankTeams(votes1)); // Output: ACB
+
+        String[] votes2 = {"WXYZ", "XYZW"};
+        System.out.println(solver.rankTeams(votes2)); // Output: XWYZ
     }
 }

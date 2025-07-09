@@ -4,54 +4,46 @@ import leetcode.common.ListNode;
 
 public class Solution725 {
 
-    public ListNode[] splitListToParts(ListNode root, int k) {
-        ListNode[] result = new ListNode[k];
-        int length = 0;
-        ListNode current = root;
+    public static class SplitLinkedListInParts {
 
-        // First, calculate the length of the linked list
-        while (current != null) {
-            length++;
-            current = current.next;
-        }
+        public ListNode[] splitListToParts(ListNode root, int k) {
+            ListNode[] result = new ListNode[k];
+            int n = 0;
+            ListNode curr = root;
 
-        // Calculate the size of each part and the number of longer parts
-        int partSize = length / k;
-        int longerParts = length % k;
-
-        current = root;
-        for (int i = 0; i < k; i++) {
-            result[i] = current;
-            // Determine the size of the current part
-            int currentPartSize = partSize + (i < longerParts ? 1 : 0);
-
-            // Move to the end of the current part
-            for (int j = 0; j < currentPartSize - 1 && current != null; j++) {
-                current = current.next;
+            // Count total nodes
+            while (curr != null) {
+                n++;
+                curr = curr.next;
             }
 
-            // Disconnect the current part from the next part
-            if (current != null) {
-                ListNode nextPartHead = current.next;
-                current.next = null;
-                current = nextPartHead;
-            }
-        }
+            int width = n / k;
+            int extra = n % k;
 
-        return result;
+            ListNode node = root;
+            for (int i = 0; i < k; i++) {
+                ListNode head = node;
+                int partSize = width + (i < extra ? 1 : 0);
+
+                for (int j = 0; j < partSize - 1; j++) {
+                    if (node != null) node = node.next;
+                }
+
+                if (node != null) {
+                    ListNode next = node.next;
+                    node.next = null;
+                    node = next;
+                }
+
+                result[i] = head;
+            }
+
+            return result;
+        }
     }
 
-    public static void main(String[] args) {
-        // Example usage
-        ListNode head = new ListNode(1);
-        head.next = new ListNode(2);
-        head.next.next = new ListNode(3);
-        head.next.next.next = new ListNode(4);
-        head.next.next.next.next = new ListNode(5);
-
-        Solution725 solution = new Solution725();
-        ListNode[] parts = solution.splitListToParts(head, 3);
-
+    // Helper method to print the result
+    public static void printParts(ListNode[] parts) {
         for (ListNode part : parts) {
             while (part != null) {
                 System.out.print(part.val + " ");
@@ -59,5 +51,20 @@ public class Solution725 {
             }
             System.out.println();
         }
+    }
+
+    public static void main(String[] args) {
+        // Example: [1,2,3,4,5,6,7,8,9,10] and k = 3
+        ListNode head = new ListNode(1);
+        ListNode curr = head;
+        for (int i = 2; i <= 10; i++) {
+            curr.next = new ListNode(i);
+            curr = curr.next;
+        }
+
+        SplitLinkedListInParts splitter = new SplitLinkedListInParts();
+        ListNode[] parts = splitter.splitListToParts(head, 3);
+
+        printParts(parts);  // Should print parts of size [4,3,3]
     }
 }
