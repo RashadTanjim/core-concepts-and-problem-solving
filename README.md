@@ -7,6 +7,7 @@ This repository is a curated collection of **core computer science concepts** an
 ### **Core Concepts**
 - **Java & OOP**: JVM internals, memory management, garbage collection, class loading, generics, and type safety.
 - **Go Best Practices**: Modules, project layout, error handling, concurrency patterns, and performance tips.
+- **Java vs Go Learning Guide**: Side-by-side language comparison, migration pitfalls, backend coding patterns, and DSA-focused study path.
 - **Concurrency**: Thread safety, synchronization, locks, thread pools, deadlocks, and race conditions.
 - **SQA & Testing**: Testing fundamentals, QA concepts, and interview-style Q&A.
 
@@ -17,6 +18,7 @@ This repository is a curated collection of **core computer science concepts** an
 
 - `cs-core-concepts/java-and-oop`: Markdown notes on Java, OOP, JVM, concurrency, and related topics.
 - `cs-core-concepts/golang-best-practices`: Go fundamentals and best practices with examples.
+- `cs-core-concepts/java-vs-go-learning-path`: Complete Java-vs-Go learning guide with preserved examples and migration-focused notes.
 - `cs-core-concepts/project-managment-best-practices/`: Notes on project management, including Agile methodologies and best practices.
 - `cs-core-concepts/sqa/`: Software quality assurance and testing notes.
 - `cs-core-concepts/github-best-practices/`: GitHub workflows, branching, and collaboration notes.
