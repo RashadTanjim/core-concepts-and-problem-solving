@@ -16,9 +16,9 @@ This repository is a curated collection of **core computer science concepts** an
 
 ## 🗂️ Repository Layout
 
-- `cs-core-concepts/java-and-oop`: Markdown notes on Java, OOP, JVM, concurrency, and related topics.
-- `cs-core-concepts/golang-best-practices`: Go fundamentals and best practices with examples.
-- `cs-core-concepts/java-vs-go-learning-path`: Complete Java-vs-Go learning guide with preserved examples and migration-focused notes.
+- `cs-core-concepts/java-and-oop/`: Markdown notes on Java, OOP, JVM, concurrency, and related topics.
+- `cs-core-concepts/golang-learing/`: Go fundamentals and best practices with examples.
+- `cs-core-concepts/java-vs-go-learning-path/`: Complete Java-vs-Go learning guide with preserved examples and migration-focused notes.
 - `cs-core-concepts/project-managment-best-practices/`: Notes on project management, including Agile methodologies and best practices.
 - `cs-core-concepts/sqa/`: Software quality assurance and testing notes.
 - `cs-core-concepts/github-best-practices/`: GitHub workflows, branching, and collaboration notes.
