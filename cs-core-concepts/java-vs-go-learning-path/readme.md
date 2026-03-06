@@ -1,7 +1,6 @@
-# Java vs Go Learning Guide (Complete + Preserved Source)
+# Java vs Go Learning Guide
 
-This file is structured as a learning guide and also keeps all concepts and code examples from the shared link content.
-No original concept/code section from the link has been removed; the original material is preserved below in ordered modules.
+This file is structured as a learning guide and also keeps all concepts and code examples.
 
 ## How To Use This Guide
 
@@ -16,12 +15,6 @@ No original concept/code section from the link has been removed; the original ma
 - Week 2: Modules 3-5 (JSON mapping, logging, backend utility patterns)
 - Week 3: Modules 6-8 (missing core backend concepts + DSA + migration pitfalls)
 - Week 4: Module 9 + capstone (build reusable Go backend helpers)
-
----
-
-## Preserved Source Material (From Shared Link)
-
-The following sections are preserved from the link content and ordered for learning progression.
 
 ---
 
