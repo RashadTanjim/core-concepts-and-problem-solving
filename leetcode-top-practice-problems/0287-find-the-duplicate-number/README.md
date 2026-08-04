@@ -42,3 +42,9 @@
 	<li>How can we prove that at least one duplicate number must exist in <code>nums</code>?</li>
 	<li>Can you solve the problem in linear runtime complexity?</li>
 </ul>
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

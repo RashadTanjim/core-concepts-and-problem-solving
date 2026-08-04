@@ -63,3 +63,9 @@ Note that the second line is also left-justified because it contains only one wo
 	<li><code>1 &lt;= maxWidth &lt;= 100</code></li>
 	<li><code>words[i].length &lt;= maxWidth</code></li>
 </ul>
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

@@ -47,3 +47,9 @@ Please notice that another valid answer is [5,2,6,null,4,null,7] and it&#39;s al
 
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Could you solve it with time complexity <code>O(height of tree)</code>?</p>
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

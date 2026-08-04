@@ -42,3 +42,9 @@ lRUCache.get(4);    // return 4
 	<li><code>0 &lt;= value &lt;= 10<sup>5</sup></code></li>
 	<li>At most <code>2 * 10<sup>5</sup></code> calls will be made to <code>get</code> and <code>put</code>.</li>
 </ul>
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

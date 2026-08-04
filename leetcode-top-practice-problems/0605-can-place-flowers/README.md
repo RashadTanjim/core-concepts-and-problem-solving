@@ -19,3 +19,9 @@
 	<li>There are no two adjacent flowers in <code>flowerbed</code>.</li>
 	<li><code>0 &lt;= n &lt;= flowerbed.length</code></li>
 </ul>
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

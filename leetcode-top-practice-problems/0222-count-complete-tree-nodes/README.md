@@ -34,3 +34,9 @@
 	<li><code>0 &lt;= Node.val &lt;= 5 * 10<sup>4</sup></code></li>
 	<li>The tree is guaranteed to be <strong>complete</strong>.</li>
 </ul>
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

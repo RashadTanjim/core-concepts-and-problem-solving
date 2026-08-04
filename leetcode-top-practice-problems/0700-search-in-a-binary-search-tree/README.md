@@ -26,3 +26,9 @@
 	<li><code>root</code> is a binary search tree.</li>
 	<li><code>1 &lt;= val &lt;= 10<sup>7</sup></code></li>
 </ul>
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

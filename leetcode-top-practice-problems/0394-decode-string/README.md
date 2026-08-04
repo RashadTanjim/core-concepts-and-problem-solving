@@ -37,3 +37,9 @@
 	<li><code>s</code> is guaranteed to be <strong>a valid</strong> input.</li>
 	<li>All the integers in <code>s</code> are in the range <code>[1, 300]</code>.</li>
 </ul>
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

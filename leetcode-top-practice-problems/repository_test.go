@@ -42,7 +42,7 @@ func TestManifestMatchesProblemDirectories(t *testing.T) {
 			continue
 		}
 		dir := fmt.Sprintf("%04d-%s", id, item.TitleSlug)
-		for _, name := range []string{"README.md", "solution.md", "solution.go"} {
+		for _, name := range []string{"README.md", "solution.md", "solution.go", "Solution.java"} {
 			path := filepath.Join(dir, name)
 			if _, err := os.Stat(path); err != nil {
 				t.Errorf("%s: %v", path, err)

@@ -18,3 +18,9 @@
 	<li><code>-1000 &lt;= nums[i] &lt;= 1000</code></li>
 	<li><code>-10<sup>7</sup> &lt;= k &lt;= 10<sup>7</sup></code></li>
 </ul>
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

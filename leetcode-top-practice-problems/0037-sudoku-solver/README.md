@@ -30,3 +30,9 @@
 	<li><code>board[i][j]</code> is a digit or <code>&#39;.&#39;</code>.</li>
 	<li>It is <strong>guaranteed</strong> that the input board has only one solution.</li>
 </ul>
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

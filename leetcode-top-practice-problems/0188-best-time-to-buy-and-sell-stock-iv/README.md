@@ -29,3 +29,9 @@
 	<li><code>1 &lt;= prices.length &lt;= 1000</code></li>
 	<li><code>0 &lt;= prices[i] &lt;= 1000</code></li>
 </ul>
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

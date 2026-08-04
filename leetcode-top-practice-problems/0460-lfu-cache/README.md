@@ -58,3 +58,9 @@ lfu.get(4);      // return 4
 
 <p>&nbsp;</p>
 <span style="display: none;">&nbsp;</span>
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

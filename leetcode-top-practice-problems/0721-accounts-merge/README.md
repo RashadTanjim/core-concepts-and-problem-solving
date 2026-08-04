@@ -34,3 +34,9 @@ We could return these lists in any order, for example the answer [[&#39;Mary&#39
 	<li><code>accounts[i][0]</code> consists of English letters.</li>
 	<li><code>accounts[i][j] (for j &gt; 0)</code> is a valid email.</li>
 </ul>
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

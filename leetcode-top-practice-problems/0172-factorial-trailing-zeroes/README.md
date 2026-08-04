@@ -35,3 +35,9 @@
 
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Could you write a solution that works in logarithmic time complexity?</p>
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

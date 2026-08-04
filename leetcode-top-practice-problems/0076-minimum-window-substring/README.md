@@ -40,3 +40,9 @@ Since the largest window of s only has one &#39;a&#39;, return empty string.
 
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Could you find an algorithm that runs in <code>O(m + n)</code> time?</p>
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

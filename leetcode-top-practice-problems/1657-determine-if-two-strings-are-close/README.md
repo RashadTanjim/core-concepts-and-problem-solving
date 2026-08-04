@@ -55,3 +55,9 @@ Apply Operation 2: &quot;<u>baa</u>ccc&quot; -&gt; &quot;<u>abb</u>ccc&quot;
 	<li><code>1 &lt;= word1.length, word2.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>word1</code> and <code>word2</code> contain only lowercase English letters.</li>
 </ul>
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

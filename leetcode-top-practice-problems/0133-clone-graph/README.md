@@ -60,3 +60,9 @@ class Node {
 	<li>There are no repeated edges and no self-loops in the graph.</li>
 	<li>The Graph is connected and all nodes can be visited starting from the given node.</li>
 </ul>
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

@@ -27,3 +27,9 @@
 	<li><code>1 &lt;= n &lt;= 100</code></li>
 	<li><code>-100 &lt;= gain[i] &lt;= 100</code></li>
 </ul>
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

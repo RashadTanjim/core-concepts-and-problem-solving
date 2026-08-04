@@ -44,3 +44,9 @@
 	<li><code>1 &lt;= chars.length &lt;= 2000</code></li>
 	<li><code>chars[i]</code> is a lowercase English letter, uppercase English letter, digit, or symbol.</li>
 </ul>
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

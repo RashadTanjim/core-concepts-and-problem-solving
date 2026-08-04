@@ -39,3 +39,9 @@ Total profit is 4.
 	<li><code>1 &lt;= prices.length &lt;= 3 * 10<sup>4</sup></code></li>
 	<li><code>0 &lt;= prices[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

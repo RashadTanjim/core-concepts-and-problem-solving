@@ -49,3 +49,9 @@ The total hiring cost is 4.
 	<li><code>1 &lt;= costs[i] &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= k, candidates &lt;= costs.length</code></li>
 </ul>
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

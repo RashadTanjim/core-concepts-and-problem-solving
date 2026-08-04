@@ -35,3 +35,9 @@ After typing mou, mous and mouse the system suggests [&quot;mouse&quot;,&quot;mo
 	<li><code>1 &lt;= searchWord.length &lt;= 1000</code></li>
 	<li><code>searchWord</code> consists of lowercase English letters.</li>
 </ul>
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

@@ -24,3 +24,9 @@
 	<li><code>1 &lt;= m, n &lt;= 10</code></li>
 	<li><code>-100 &lt;= matrix[i][j] &lt;= 100</code></li>
 </ul>
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

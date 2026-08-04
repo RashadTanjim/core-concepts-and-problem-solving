@@ -39,3 +39,9 @@ These are the only two combinations.
 	<li>All elements of <code>candidates</code> are <strong>distinct</strong>.</li>
 	<li><code>1 &lt;= target &lt;= 40</code></li>
 </ul>
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

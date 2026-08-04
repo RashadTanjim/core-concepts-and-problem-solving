@@ -53,3 +53,9 @@
 	<li><code>s</code> <strong>does not contain</strong> any leading or trailing spaces.</li>
 	<li>All the words in <code>s</code> are separated by a <strong>single space</strong>.</li>
 </ul>
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

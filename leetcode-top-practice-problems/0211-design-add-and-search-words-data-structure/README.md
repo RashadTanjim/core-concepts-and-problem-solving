@@ -39,3 +39,9 @@ wordDictionary.search(&quot;b..&quot;); // return True
 	<li>There will be at most <code>2</code> dots in <code>word</code> for <code>search</code> queries.</li>
 	<li>At most <code>10<sup>4</sup></code> calls will be made to <code>addWord</code> and <code>search</code>.</li>
 </ul>
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

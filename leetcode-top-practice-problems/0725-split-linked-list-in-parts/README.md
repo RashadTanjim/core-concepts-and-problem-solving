@@ -34,3 +34,9 @@ The input has been split into consecutive parts with size difference at most 1, 
 	<li><code>0 &lt;= Node.val &lt;= 1000</code></li>
 	<li><code>1 &lt;= k &lt;= 50</code></li>
 </ul>
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

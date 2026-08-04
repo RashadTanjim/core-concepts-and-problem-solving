@@ -45,3 +45,9 @@ And in round 2, the third senator can just announce the victory since he is the 
 	<li><code>1 &lt;= n &lt;= 10<sup>4</sup></code></li>
 	<li><code>senate[i]</code> is either <code>&#39;R&#39;</code> or <code>&#39;D&#39;</code>.</li>
 </ul>
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

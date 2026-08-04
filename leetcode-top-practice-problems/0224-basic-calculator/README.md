@@ -36,3 +36,9 @@
 	<li>There will be no two consecutive operators in the input.</li>
 	<li>Every number and running calculation will fit in a signed 32-bit integer.</li>
 </ul>
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

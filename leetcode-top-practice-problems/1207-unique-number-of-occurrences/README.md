@@ -29,3 +29,9 @@
 	<li><code>1 &lt;= arr.length &lt;= 1000</code></li>
 	<li><code>-1000 &lt;= arr[i] &lt;= 1000</code></li>
 </ul>
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

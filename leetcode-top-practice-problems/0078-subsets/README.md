@@ -25,3 +25,9 @@
 	<li><code>-10 &lt;= nums[i] &lt;= 10</code></li>
 	<li>All the numbers of&nbsp;<code>nums</code> are <strong>unique</strong>.</li>
 </ul>
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

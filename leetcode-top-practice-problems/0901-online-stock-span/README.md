@@ -42,3 +42,9 @@ stockSpanner.next(85);  // return 6
 	<li><code>1 &lt;= price &lt;= 10<sup>5</sup></code></li>
 	<li>At most <code>10<sup>4</sup></code> calls will be made to <code>next</code>.</li>
 </ul>
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

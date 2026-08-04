@@ -33,3 +33,9 @@
 	<li><code>0 &lt;= nums[i] &lt;= 1000</code></li>
 	<li>It&#39;s guaranteed that you can reach <code>nums[n - 1]</code>.</li>
 </ul>
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

@@ -37,3 +37,9 @@ trie.search(&quot;app&quot;);     // return True
 	<li><code>word</code> and <code>prefix</code> consist only of lowercase English letters.</li>
 	<li>At most <code>3 * 10<sup>4</sup></code> calls <strong>in total</strong> will be made to <code>insert</code>, <code>search</code>, and <code>startsWith</code>.</li>
 </ul>
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

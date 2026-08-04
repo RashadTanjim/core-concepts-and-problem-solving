@@ -37,3 +37,9 @@ Since we were able to visit every room, we return true.
 	<li><code>0 &lt;= rooms[i][j] &lt; n</code></li>
 	<li>All the values of <code>rooms[i]</code> are <strong>unique</strong>.</li>
 </ul>
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

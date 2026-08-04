@@ -26,3 +26,9 @@ Bolded numbers were flipped from 0 to 1. The longest subarray is underlined.
 	<li><code>nums[i]</code> is either <code>0</code> or <code>1</code>.</li>
 	<li><code>0 &lt;= k &lt;= nums.length</code></li>
 </ul>
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

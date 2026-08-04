@@ -69,3 +69,9 @@ Explanation is shown in the photo below:
 	<li><code>n == grid.length == grid[i].length</code></li>
 	<li><code>n == 2<sup>x</sup></code> where <code>0 &lt;= x &lt;= 6</code></li>
 </ul>
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

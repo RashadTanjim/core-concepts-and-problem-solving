@@ -42,3 +42,9 @@ So one correct course order is [0,1,2,3]. Another correct ordering is [0,2,1,3].
 	<li><code>a<sub>i</sub> != b<sub>i</sub></code></li>
 	<li>All the pairs <code>[a<sub>i</sub>, b<sub>i</sub>]</code> are <strong>distinct</strong>.</li>
 </ul>
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

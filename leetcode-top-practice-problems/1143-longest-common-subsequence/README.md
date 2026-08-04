@@ -40,3 +40,9 @@
 	<li><code>1 &lt;= text1.length, text2.length &lt;= 1000</code></li>
 	<li><code>text1</code> and <code>text2</code> consist of only lowercase English characters.</li>
 </ul>
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

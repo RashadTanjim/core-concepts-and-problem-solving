@@ -182,6 +182,7 @@ This is a short excerpt from the LeetCode prompt. Use the linked problem as the 
 
 - [Detailed interview solution](./solution.md)
 - [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)
 `, q.QuestionFrontendID, q.Title, titleCase(q.Difficulty), access,
 		strings.Join(topics, ", "), q.TitleSlug, excerpt)
 	must(os.WriteFile(filepath.Join(dir, "README.md"), []byte(content), 0o644))
@@ -244,6 +245,7 @@ Can you design an algorithm with better than $O(n^2)$ time complexity?
 
 - [Detailed interview solution](./solution.md)
 - [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)
 `
 	must(os.WriteFile(filepath.Join(dir, "README.md"), []byte(content), 0o644))
 }
@@ -258,7 +260,7 @@ func writeSolutionGuide(q question) {
 	baseline, invariant, proof, complexity := guidance(q.Approach)
 	content := fmt.Sprintf(`# %s. %s - Interview Solution
 
-[Problem description](./README.md) | [Go implementation](./solution.go) | [LeetCode](https://leetcode.com/problems/%s/)
+[Problem description](./README.md) | [Go implementation](./solution.go) | [Java implementation](./Solution.java) | [LeetCode](https://leetcode.com/problems/%s/)
 
 ## Pattern recognition
 
@@ -274,7 +276,7 @@ This is useful as a correctness baseline, but it revisits candidates or recomput
 
 1. Identify the state that must be available when processing the next element, node, or decision.
 2. Represent that state with the data structure implied by **%s**.
-3. Process each state in the order used by <code>solution.go</code>, updating the answer only after the invariant is restored.
+3. Process each state in the order used by the implementations, updating the answer only after the invariant is restored.
 4. Return the accumulated result or the final state required by the prompt.
 
 **Invariant:** %s
@@ -295,10 +297,11 @@ This is useful as a correctness baseline, but it revisits candidates or recomput
 - Integer overflow and boundary indices where arithmetic is involved.
 - Degenerate structures such as a one-sided tree, a cycle, or a disconnected graph when relevant.
 
-## Go submission notes
+## Submission notes
 
 - Submit the imports and implementation from <code>solution.go</code>.
-- <code>types.go</code> exists only when this repository needs a local version of a LeetCode-provided type or callback.
+- For Java, submit <code>Solution.java</code> or the problem-specific design class it contains.
+- <code>types.go</code> and <code>Types.java</code> exist only when local compilation needs a LeetCode-provided type or callback.
 - Explain the invariant before coding, use descriptive state names, and finish by testing one normal case plus one boundary case aloud.
 `, q.QuestionFrontendID, q.Title, q.TitleSlug, q.Approach, baseline,
 		q.Approach, invariant, proof, complexity)
@@ -308,7 +311,7 @@ This is useful as a correctness baseline, but it revisits candidates or recomput
 func writeMedianSolution(dir string) {
 	content := `# 4. Median of Two Sorted Arrays - Interview Solution
 
-[Problem description](./README.md) | [Go implementation](./solution.go) | [LeetCode](https://leetcode.com/problems/median-of-two-sorted-arrays/)
+[Problem description](./README.md) | [Go implementation](./solution.go) | [Java implementation](./Solution.java) | [LeetCode](https://leetcode.com/problems/median-of-two-sorted-arrays/)
 
 ## What the interviewer is testing
 
@@ -541,32 +544,40 @@ func writeIndex(questions []question) {
 		counts[q.Difficulty]++
 	}
 	var out strings.Builder
-	fmt.Fprintln(&out, "# LeetCode Top Practice Problems in Go")
+	fmt.Fprintln(&out, "# LeetCode Top Practice Problems in Go and Java")
 	fmt.Fprintln(&out)
-	fmt.Fprintln(&out, "Complete Go coverage of the shared [LeetCode problem list](https://leetcode.com/problem-list/24s7vlue/), organized as one independently compilable package per problem.")
+	fmt.Fprintln(&out, "Complete Go and Java coverage of the shared [LeetCode problem list](https://leetcode.com/problem-list/24s7vlue/), organized as one independently compilable directory per problem.")
 	fmt.Fprintln(&out)
 	fmt.Fprintf(&out, "- Total: **%d**\n- Easy: **%d**\n- Medium: **%d**\n- Hard: **%d**\n\n", len(questions), counts["EASY"], counts["MEDIUM"], counts["HARD"])
 	fmt.Fprintln(&out, "## How to use this repository")
 	fmt.Fprintln(&out)
 	fmt.Fprintln(&out, "1. Open a problem directory and read `README.md` for the prompt summary.")
 	fmt.Fprintln(&out, "2. Work through `solution.md` from brute force to the optimized invariant.")
-	fmt.Fprintln(&out, "3. Reimplement from memory, then compare with `solution.go`.")
-	fmt.Fprintln(&out, "4. Run `go test ./...` from this directory to compile every package and run repository checks.")
+	fmt.Fprintln(&out, "3. Reimplement from memory, then compare with `solution.go` and `Solution.java`.")
+	fmt.Fprintln(&out, "4. Run the Go and Java verification commands before committing changes.")
 	fmt.Fprintln(&out)
-	fmt.Fprintln(&out, "LeetCode supplies some node types and callback APIs. Their local equivalents live in `types.go`; submit only the imports and implementation from `solution.go`.")
+	fmt.Fprintln(&out, "LeetCode supplies some node types and callback APIs. Local equivalents live in `types.go` and `Types.java`; omit those stand-ins when submitting to LeetCode.")
 	fmt.Fprintln(&out)
 	fmt.Fprintln(&out, "## Problems")
 	fmt.Fprintln(&out)
-	fmt.Fprintln(&out, "| List order | # | Problem | Solution | Difficulty | Approach |")
-	fmt.Fprintln(&out, "|---:|---:|---|---|---|---|")
+	fmt.Fprintln(&out, "| List order | # | Problem | Guide | Go | Java | Difficulty | Approach |")
+	fmt.Fprintln(&out, "|---:|---:|---|---|---|---|---|---|")
 	for i, q := range questions {
 		id, _ := strconv.Atoi(q.QuestionFrontendID)
 		dir := fmt.Sprintf("%04d-%s", id, q.TitleSlug)
-		fmt.Fprintf(&out, "| %d | %s | [%s](./%s/) | [Approach](./%s/solution.md) | %s | %s |\n", i+1, q.QuestionFrontendID, q.Title, dir, dir, titleCase(q.Difficulty), q.Approach)
+		fmt.Fprintf(&out, "| %d | %s | [%s](./%s/) | [Approach](./%s/solution.md) | [Go](./%s/solution.go) | [Java](./%s/Solution.java) | %s | %s |\n", i+1, q.QuestionFrontendID, q.Title, dir, dir, dir, dir, titleCase(q.Difficulty), q.Approach)
 	}
 	fmt.Fprintln(&out, "\n## Verification")
 	fmt.Fprintln(&out)
-	fmt.Fprintln(&out, "```bash\ngo test ./...\n```")
+	fmt.Fprintln(&out, "Go 1.22+ and JDK 17+ are required.")
+	fmt.Fprintln(&out)
+	fmt.Fprintln(&out, "```bash\ngo test ./...\ngo vet ./...\ngo run ./tools/verify-java\n```")
+	fmt.Fprintln(&out)
+	fmt.Fprintln(&out, "## Maintenance")
+	fmt.Fprintln(&out)
+	fmt.Fprintln(&out, "- `go run ./tools/general-docs` regenerates the problem manifest, interview guides, and this index.")
+	fmt.Fprintln(&out, "- `go run ./tools/scaffold-judge-types` regenerates local Go and Java judge stand-ins.")
+	fmt.Fprintln(&out, "- `go run ./tools/import-java /path/to/doocs/leetcode` refreshes attributed Java implementations from a local source checkout.")
 	fmt.Fprintln(&out)
 	fmt.Fprintln(&out, "See [NOTICE.md](./NOTICE.md) for source attribution.")
 	must(os.WriteFile("README.md", []byte(out.String()), 0o644))

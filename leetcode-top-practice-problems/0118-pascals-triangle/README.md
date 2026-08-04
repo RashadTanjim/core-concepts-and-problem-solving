@@ -16,3 +16,9 @@
 <ul>
 	<li><code>1 &lt;= numRows &lt;= 30</code></li>
 </ul>
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

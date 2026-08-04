@@ -31,3 +31,9 @@
 	<li><code>1 &lt;= k &lt;= 10<sup>4</sup></code></li>
 	<li><code>k &lt;=&nbsp;nums1.length *&nbsp;nums2.length</code></li>
 </ul>
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

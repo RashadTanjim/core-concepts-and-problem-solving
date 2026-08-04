@@ -37,3 +37,9 @@
 
 <p>&nbsp;</p>
 <strong>Follow up:</strong> Can you flatten the tree in-place (with <code>O(1)</code> extra space)?
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

@@ -40,3 +40,9 @@
 
 <p>&nbsp;</p>
 <strong>Follow up:</strong> Could you find an <code>O(nums1.length + nums2.length)</code> solution?
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

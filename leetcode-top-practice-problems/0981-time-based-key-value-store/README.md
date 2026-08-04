@@ -38,3 +38,9 @@ timeMap.get(&quot;foo&quot;, 5);         // return &quot;bar2&quot;
 	<li>All the timestamps <code>timestamp</code> of <code>set</code> are strictly increasing.</li>
 	<li>At most <code>2 * 10<sup>5</sup></code> calls will be made to <code>set</code> and <code>get</code>.</li>
 </ul>
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

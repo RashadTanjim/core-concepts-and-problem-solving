@@ -34,3 +34,9 @@ There are two ways to reach the bottom-right corner:
 	<li><code>1 &lt;= m, n &lt;= 100</code></li>
 	<li><code>obstacleGrid[i][j]</code> is <code>0</code> or <code>1</code>.</li>
 </ul>
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

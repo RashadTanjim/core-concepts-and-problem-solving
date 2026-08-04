@@ -51,3 +51,9 @@ Thus, the nearest exit is [1,2], which is 2 steps away.
 	<li><code>0 &lt;= entrance<sub>col</sub> &lt; n</code></li>
 	<li><code>entrance</code> will always be an empty cell.</li>
 </ul>
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

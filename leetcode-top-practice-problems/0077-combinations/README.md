@@ -27,3 +27,9 @@ Note that combinations are unordered, i.e., [1,2] and [2,1] are considered to be
 	<li><code>1 &lt;= n &lt;= 20</code></li>
 	<li><code>1 &lt;= k &lt;= n</code></li>
 </ul>
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

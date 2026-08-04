@@ -37,3 +37,9 @@ Person 5 can see no one since nobody is to the right of them.
 	<li><code>1 &lt;= heights[i] &lt;= 10<sup>5</sup></code></li>
 	<li>All the values of <code>heights</code> are <strong>unique</strong>.</li>
 </ul>
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

@@ -44,3 +44,9 @@ There are no more stars, so we return &quot;lecoe&quot;.</pre>
 	<li><code>s</code> consists of lowercase English letters and stars <code>*</code>.</li>
 	<li>The operation above can be performed on <code>s</code>.</li>
 </ul>
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

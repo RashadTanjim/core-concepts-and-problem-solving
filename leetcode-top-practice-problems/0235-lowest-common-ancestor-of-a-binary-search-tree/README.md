@@ -36,3 +36,9 @@
 	<li><code>p != q</code></li>
 	<li><code>p</code> and <code>q</code> will exist in the BST.</li>
 </ul>
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

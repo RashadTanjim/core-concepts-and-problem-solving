@@ -37,3 +37,9 @@ The total cost is 6.
 	<li><code>2 &lt;= cost.length &lt;= 1000</code></li>
 	<li><code>0 &lt;= cost[i] &lt;= 999</code></li>
 </ul>
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

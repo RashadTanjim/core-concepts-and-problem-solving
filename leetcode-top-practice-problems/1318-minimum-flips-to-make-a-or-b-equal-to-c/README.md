@@ -33,3 +33,9 @@ Flip operation&nbsp;consists of change&nbsp;<strong>any</strong>&nbsp;single bit
 	<li><code>1 &lt;= b&nbsp;&lt;= 10^9</code></li>
 	<li><code>1 &lt;= c&nbsp;&lt;= 10^9</code></li>
 </ul>
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

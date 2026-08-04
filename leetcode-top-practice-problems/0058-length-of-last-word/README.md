@@ -35,3 +35,9 @@
 	<li><code>s</code> consists of only English letters and spaces <code>&#39; &#39;</code>.</li>
 	<li>There will be at least one word in <code>s</code>.</li>
 </ul>
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

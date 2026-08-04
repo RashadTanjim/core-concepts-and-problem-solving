@@ -15,3 +15,9 @@
 	<li><code>1 &lt;= s.length &lt;= 16</code></li>
 	<li><code>s</code> contains only lowercase English letters.</li>
 </ul>
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

@@ -38,3 +38,9 @@ smallestInfiniteSet.popSmallest(); // return 5, and remove it from the set.
 	<li><code>1 &lt;= num &lt;= 1000</code></li>
 	<li>At most <code>1000</code> calls will be made <strong>in total</strong> to <code>popSmallest</code> and <code>addBack</code>.</li>
 </ul>
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

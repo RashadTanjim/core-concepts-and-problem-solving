@@ -92,3 +92,9 @@ font-size: 0.85rem;
 	<li><code>tasks[i]</code> is an uppercase English letter.</li>
 	<li><code>0 &lt;= n &lt;= 100</code></li>
 </ul>
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

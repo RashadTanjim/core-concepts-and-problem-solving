@@ -40,3 +40,9 @@ exection -&gt; execution (insert &#39;u&#39;)
 	<li><code>0 &lt;= word1.length, word2.length &lt;= 500</code></li>
 	<li><code>word1</code> and <code>word2</code> consist of lowercase English letters.</li>
 </ul>
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

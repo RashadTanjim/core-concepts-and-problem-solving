@@ -1,6 +1,6 @@
 # 4. Median of Two Sorted Arrays - Interview Solution
 
-[Problem description](./README.md) | [Go implementation](./solution.go) | [LeetCode](https://leetcode.com/problems/median-of-two-sorted-arrays/)
+[Problem description](./README.md) | [Go implementation](./solution.go) | [Java implementation](./Solution.java) | [LeetCode](https://leetcode.com/problems/median-of-two-sorted-arrays/)
 
 ## What the interviewer is testing
 

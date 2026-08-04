@@ -57,3 +57,9 @@ The substring starting at 12 is <code>&quot;thefoobar&quot;</code>. It is the co
 	<li><code>1 &lt;= words[i].length &lt;= 30</code></li>
 	<li><code>s</code> and <code>words[i]</code> consist of lowercase English letters.</li>
 </ul>
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

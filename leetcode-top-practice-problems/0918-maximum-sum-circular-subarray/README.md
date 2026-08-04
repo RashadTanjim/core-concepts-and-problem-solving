@@ -37,3 +37,9 @@
 	<li><code>1 &lt;= n &lt;= 3 * 10<sup>4</sup></code></li>
 	<li><code>-3 * 10<sup>4</sup> &lt;= nums[i] &lt;= 3 * 10<sup>4</sup></code></li>
 </ul>
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

@@ -30,3 +30,9 @@
 	<li>The number of nodes in each tree will be in the range <code>[1, 200]</code>.</li>
 	<li>Both of the given trees will have values in the range <code>[0, 200]</code>.</li>
 </ul>
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

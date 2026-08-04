@@ -31,3 +31,9 @@
 	<li><code>1 &lt;= str1.length, str2.length &lt;= 1000</code></li>
 	<li><code>str1</code> and <code>str2</code> consist of English uppercase letters.</li>
 </ul>
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

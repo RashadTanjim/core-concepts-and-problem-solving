@@ -40,3 +40,9 @@ Therefore, output the final maximized capital, which is 0 + 1 + 3 = 4.
 	<li><code>0 &lt;= profits[i] &lt;= 10<sup>4</sup></code></li>
 	<li><code>0 &lt;= capital[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

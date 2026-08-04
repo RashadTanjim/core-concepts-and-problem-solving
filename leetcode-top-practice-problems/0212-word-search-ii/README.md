@@ -30,3 +30,9 @@
 	<li><code>words[i]</code> consists of lowercase English letters.</li>
 	<li>All the strings of <code>words</code> are unique.</li>
 </ul>
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

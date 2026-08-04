@@ -51,3 +51,9 @@
 	<li><code>0 &lt;= sr &lt; m</code></li>
 	<li><code>0 &lt;= sc &lt; n</code></li>
 </ul>
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

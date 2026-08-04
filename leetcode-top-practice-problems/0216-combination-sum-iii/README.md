@@ -45,3 +45,9 @@ Using 4 different numbers in the range [1,9], the smallest sum we can get is 1+2
 	<li><code>2 &lt;= k &lt;= 9</code></li>
 	<li><code>1 &lt;= n &lt;= 60</code></li>
 </ul>
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

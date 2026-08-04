@@ -39,3 +39,9 @@ Thus, [2,0,2] is returned.
 	<li><code>1 &lt;= spells[i], potions[i] &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= success &lt;= 10<sup>10</sup></code></li>
 </ul>
+
+## Solutions
+
+- [Detailed interview solution](./solution.md)
+- [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)

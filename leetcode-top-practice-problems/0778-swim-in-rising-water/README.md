@@ -16,3 +16,4 @@ This is a short excerpt from the LeetCode prompt. Use the linked problem as the 
 
 - [Detailed interview solution](./solution.md)
 - [Go implementation](./solution.go)
+- [Java implementation](./Solution.java)
